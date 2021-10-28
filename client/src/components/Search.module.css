@@ -1,0 +1,8 @@
+.flex {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.flex input[type="text"]::placeholder {
+  color: red;
+}

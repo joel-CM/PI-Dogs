@@ -1,0 +1,19 @@
+.header {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 999;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+}
+
+.fondo {
+  background-color: red;
+}
