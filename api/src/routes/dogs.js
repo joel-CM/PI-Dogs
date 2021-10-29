@@ -14,11 +14,14 @@ route.get("/", async (req, res) => {
   const dogs = await axios.get(`https://api.thedogapi.com/v1/breeds`);
 
   const races = dogs.data.map((race) => {
+    let imperial_1 = parseInt(race.weight.imperial.split("-")[0]);
+    let imperial_2 = parseInt(race.weight.imperial.split("-")[1]);
+    let tmp = imperial_1 + imperial_2 / 2;
     return {
       id: race.id,
       name: race.name,
       height: race.height.imperial,
-      weight: race.weight.imperial,
+      weight: tmp,
       life_span: race.life_span,
       temperament: race.temperament,
       image: race.image.url,
@@ -26,7 +29,11 @@ route.get("/", async (req, res) => {
   });
 
   //todo -> traemos razas de db y juntamos con lo de api
-  const racesDB = await Dog.findAll();
+  const racesDB = await Dog.findAll({
+    include: {
+      model: Temperament,
+    },
+  });
   races.push(...racesDB);
 
   if (!name) {
@@ -52,13 +59,17 @@ route.get("/:idRace", async (req, res) => {
     try {
       let raceById = race.data.find((race) => race.id === parseInt(idRace));
 
+      let imperial_1 = parseInt(raceById.temperament.split("-")[0]);
+      let imperial_2 = parseInt(raceById.temperament.split("-")[1]);
+      let tmp = imperial_1 + imperial_2 / 2;
+
       let showRace = {
         id: raceById.id,
         name: raceById.name,
         height: raceById.height.imperial,
         weight: raceById.weight.imperial,
         life_span: raceById.life_span,
-        temperament: raceById.temperament,
+        temperament: tmp,
         image: raceById.image.url,
       };
 

@@ -1,0 +1,28 @@
+.container {
+  width: 90%;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.formContainer {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.formContainer input {
+  margin: 5px;
+}
+.height,
+.weight,
+.life_span {
+  display: flex;
+}
+.height input,
+.weight input,
+.life_span {
+  width: 100%;
+}

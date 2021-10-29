@@ -1,11 +1,12 @@
 // import axios from "axios";
 
 //todo: Actioms Types -------------------<>>>
-export const GET_DOGS = "GET_DOGS";
+export const GET_DOGS = "temperament,weight";
 export const GET_DOG_BY_ID = "GET_DOG_BY_ID";
 export const GET_DOGS_CREATE = "GET_DOGS_CREATE";
 export const PAG_LEFT = "PAG_LEFT";
 export const PAG_RIGHT = "PAG_RIGHT";
+export const ORDER_BY_WEIGHT = "ORDER_BY_WEIGHT";
 
 //todo ->>> Actiosn <<----------------->>
 export function getDogs() {
@@ -60,5 +61,18 @@ export function pagLeft() {
 export function pagRight() {
   return {
     type: PAG_RIGHT,
+  };
+}
+
+export function orderByWeight() {
+  return async function (dispatch) {
+    await fetch("http://localhost:3001/api/dogs")
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch({
+          type: ORDER_BY_WEIGHT,
+          payload: data,
+        });
+      });
   };
 }

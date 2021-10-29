@@ -39,7 +39,7 @@ route.get("/", async (req, res) => {
   const separado = [];
 
   //todo -> recorro cada temperamento, y pusheo sus props temperament a "separado"
-  //todo (separandolos por ",")
+  //todo: (separandolos por ",")
   filtrado.forEach((temp) => {
     separado.push(temp.temperament.split(","));
   });

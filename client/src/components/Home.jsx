@@ -30,9 +30,9 @@ const Home = ({ getDogs }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  dogs: state.dogs,
-});
+// const mapStateToProps = (state) => ({
+//   dogs: state.dogs,
+// });
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -40,4 +40,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(null, mapDispatchToProps)(Home);
