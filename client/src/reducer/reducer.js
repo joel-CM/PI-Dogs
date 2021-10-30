@@ -4,7 +4,8 @@ import {
   GET_DOGS_CREATE,
   PAG_LEFT,
   PAG_RIGHT,
-  ORDER_BY_WEIGHT,
+  ORDER_BY_WEIGHT_ASC,
+  ORDER_BY_WEIGHT_DES,
 } from "../actions/actions";
 
 const initialState = {
@@ -18,15 +19,23 @@ export default function reducer(state = initialState, action) {
   if (action.type === GET_DOGS) {
     return {
       ...state,
-      dogs: action.payload.sort((a, b) =>
-        b[action.type.split(",")[0]] > a[action.type.split(",")[0]] ? -1 : 1
-      ),
+      dogs: action.payload,
     };
   }
-  if (action.type === ORDER_BY_WEIGHT) {
+  if (action.type === ORDER_BY_WEIGHT_ASC) {
+    const dogsByWeightAsc = [...state.dogs];
     return {
       ...state,
-      dogs: action.payload.sort((a, b) => (b.weight > a.weight ? -1 : 1)),
+      // dogs: action.payload.sort((a, b) => (b.weight > a.weight ? -1 : 1)),
+      dogs: dogsByWeightAsc.sort((a, b) => (b.weight > a.weight ? -1 : 1)),
+    };
+  }
+  if (action.type === ORDER_BY_WEIGHT_DES) {
+    const dogsByWeightDes = [...state.dogs];
+    return {
+      ...state,
+      // dogs: action.payload.sort((a, b) => (b.weight > a.weight ? -1 : 1)),
+      dogs: dogsByWeightDes.sort((a, b) => (b.weight > a.weight ? 1 : -1)),
     };
   }
   if (action.type === GET_DOG_BY_ID) {

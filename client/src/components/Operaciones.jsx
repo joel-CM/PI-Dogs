@@ -2,32 +2,59 @@ import React from "react";
 import style from "./Operaciones.module.css";
 import { connect } from "react-redux";
 
-import { getDogsCreated, getDogs, orderByWeight } from "../actions/actions";
+import {
+  getDogsCreated,
+  getDogs,
+  orderByWeightAsc,
+  orderByWeightDes,
+} from "../actions/actions";
 
-const Operaciones = ({ getDogsCreated, getDogs, orderByWeight }) => {
-  const dogsCreated = () => {
-    getDogsCreated();
-  };
-
-  const allDogs = () => {
-    getDogs();
-  };
-
-  const orderWeight = () => {
-    orderByWeight();
+const Operaciones = ({
+  getDogsCreated,
+  getDogs,
+  orderByWeightAsc,
+  orderByWeightDes,
+}) => {
+  const handleOperations = (e) => {
+    if (e.target.value === "all_dogs") {
+      return getDogs();
+    } else if (e.target.value === "dogs_created") {
+      return getDogsCreated();
+    } else if (e.target.value === "order_by_weight_asc") {
+      //todo -> order
+      return orderByWeightAsc();
+    } else if (e.target.value === "order_by_weight_des") {
+      //todo -> order
+      return orderByWeightDes();
+    }
   };
 
   return (
     <div className={style.operationContainer}>
-      <div className="controllerPag">
-        <button onClick={dogsCreated}>Dogs Created</button>
-        <button onClick={allDogs}>All Dogs</button>
-        <button onClick={orderWeight}>Order By Weight</button>
+      <div className="controllerPoerations">
+        <div className="getDogs">
+          <b>Get Dogs</b>
+          <select onChange={handleOperations}>
+            <option value="all_dogs">All Dogs</option>
+            <option value="dogs_created">Dogs Created</option>
+          </select>
+        </div>
+
+        <div className="orderBy">
+          <b>order by:</b>
+          <select onChange={handleOperations}>
+            <option value="order_by_weight_asc">Order By Weight ASC</option>
+            <option value="order_by_weight_des">Order By Weight DES</option>
+          </select>
+        </div>
       </div>
     </div>
   );
 };
 
-export default connect(null, { getDogsCreated, getDogs, orderByWeight })(
-  Operaciones
-);
+export default connect(null, {
+  getDogsCreated,
+  getDogs,
+  orderByWeightAsc,
+  orderByWeightDes,
+})(Operaciones);

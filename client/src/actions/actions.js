@@ -6,7 +6,8 @@ export const GET_DOG_BY_ID = "GET_DOG_BY_ID";
 export const GET_DOGS_CREATE = "GET_DOGS_CREATE";
 export const PAG_LEFT = "PAG_LEFT";
 export const PAG_RIGHT = "PAG_RIGHT";
-export const ORDER_BY_WEIGHT = "ORDER_BY_WEIGHT";
+export const ORDER_BY_WEIGHT_ASC = "ORDER_BY_WEIGHT_ASC";
+export const ORDER_BY_WEIGHT_DES = "ORDER_BY_WEIGHT_DES";
 
 //todo ->>> Actiosn <<----------------->>
 export function getDogs() {
@@ -64,15 +65,14 @@ export function pagRight() {
   };
 }
 
-export function orderByWeight() {
-  return async function (dispatch) {
-    await fetch("http://localhost:3001/api/dogs")
-      .then((res) => res.json())
-      .then((data) => {
-        dispatch({
-          type: ORDER_BY_WEIGHT,
-          payload: data,
-        });
-      });
+export function orderByWeightAsc() {
+  return {
+    type: ORDER_BY_WEIGHT_ASC,
+  };
+}
+
+export function orderByWeightDes() {
+  return {
+    type: ORDER_BY_WEIGHT_DES,
   };
 }
