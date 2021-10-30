@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import style from "./Formulario.module.css";
 import axios from "axios";
 
@@ -28,6 +29,7 @@ const Formulario = ({ tmps, getTemperaments }) => {
     min_weight: 0,
     max_life_span: 0,
     min_life_span: 0,
+    image: "",
     temperament: [],
   });
 
@@ -57,79 +59,148 @@ const Formulario = ({ tmps, getTemperaments }) => {
       weight: parseInt(input.min_weight) + parseInt(input.max_weight) / 2,
       life_span:
         parseInt(input.min_life_span) + parseInt(input.max_life_span) / 2,
+      image: input.image,
       temperament: input.temperament,
     };
     await axios.post("http://localhost:3001/api/dogs", newDog);
+    setInput({
+      name: "",
+      max_height: 0,
+      min_height: 0,
+      max_weight: 0,
+      min_weight: 0,
+      max_life_span: 0,
+      min_life_span: 0,
+      image: "",
+      temperament: [],
+    });
     alert("perro creado (creo...)");
   };
+
+  //   <div className={style.back}>
+  //   <button>
+  //     <Link to="/home">BACK</Link>
+  //   </button>
+  // </div>
 
   return (
     <div className={style.container}>
       <form className={style.formContainer} onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Race"
-          onChange={handleInput}
-          value={input.name}
-        />
+        <div className={style.dogName}>
+          <label htmlFor="name">Name/Race</label>
+          <input
+            id="name"
+            type="text"
+            name="name"
+            placeholder="Race"
+            onChange={handleInput}
+            value={input.name}
+          />
+        </div>
         <div className={style.height}>
-          <input
-            type="number"
-            name="min_height"
-            placeholder="Min Height"
-            onChange={handleInput}
-            value={input.min_height}
-          />
-          <input
-            type="number"
-            name="max_height"
-            placeholder="Max Height"
-            onChange={handleInput}
-            value={input.max_height}
-          />
+          <div className={style.minHeight}>
+            <label htmlFor="minHeight">Min Height</label>
+            <input
+              id="minHeight"
+              type="number"
+              name="min_height"
+              placeholder="Min Height"
+              onChange={handleInput}
+              value={input.min_height}
+            />
+          </div>
+          <div className={style.maxHeight}>
+            <label htmlFor="maxHeight">Max Height</label>
+            <input
+              id="maxHeight"
+              type="number"
+              name="max_height"
+              placeholder="Max Height"
+              onChange={handleInput}
+              value={input.max_height}
+            />
+          </div>
         </div>
+
         <div className={style.weight}>
+          <div className={style.minWeight}>
+            <label htmlFor="minWeight">Min Weight</label>
+            <input
+              id="minWeight"
+              type="number"
+              name="min_weight"
+              placeholder="Min Weight"
+              onChange={handleInput}
+              value={input.min_weight}
+            />
+          </div>
+          <div className={style.maxHeight}>
+            <label htmlFor="maxWeight">Max Weight</label>
+            <input
+              id="maxWeight"
+              type="number"
+              name="max_weight"
+              placeholder="Max Weight"
+              onChange={handleInput}
+              value={input.max_weight}
+            />
+          </div>
+        </div>
+
+        <div className={style.lifeSpan}>
+          <div className={style.minLifeSpan}>
+            <label htmlFor="minLifeSpan">Min Life span</label>
+            <input
+              id="minLifeSpan"
+              type="number"
+              name="min_life_span"
+              placeholder="Min Life Span"
+              onChange={handleInput}
+              value={input.min_life_span}
+            />
+          </div>
+          <div className={style.maxLifeSpan}>
+            <label htmlFor="maxLifeSpan">Max Life Soan</label>
+            <input
+              id="maxLifeSpan"
+              type="number"
+              name="max_life_span"
+              placeholder="Max Life Span"
+              onChange={handleInput}
+              value={input.max_life_span}
+            />
+          </div>
+        </div>
+
+        <div className={style.dogImage}>
+          <label htmlFor="image">Paste URL</label>
           <input
-            type="number"
-            name="min_weight"
-            placeholder="Min Weight"
+            type="text"
+            id="image"
+            name="image"
+            value={input.image}
             onChange={handleInput}
-            value={input.min_weight}
-          />
-          <input
-            type="number"
-            name="max_weight"
-            placeholder="Max Weight"
-            onChange={handleInput}
-            value={input.max_weight}
           />
         </div>
-        <div className={style.life_span}>
-          <input
-            type="number"
-            name="min_life_span"
-            placeholder="Min Life Span"
+
+        <div className={style.dogSelectTmps}>
+          <label htmlFor="selectTmps">Select Temperaments</label>
+          <select
+            id="selectTmps"
+            name="temperament"
+            value={input.temperament}
             onChange={handleInput}
-            value={input.min_life_span}
-          />
-          <input
-            type="number"
-            name="max_life_span"
-            placeholder="Max Life Span"
-            onChange={handleInput}
-            value={input.max_life_span}
-          />
+          >
+            {state?.map((tmp) => (
+              <option key={tmp.id} value={tmp.name}>
+                {tmp.name}{" "}
+              </option>
+            ))}
+          </select>
         </div>
-        <select name="temperament" onChange={handleInput}>
-          {state?.map((tmp) => (
-            <option key={tmp.id} value={tmp.name}>
-              {" "}
-              {tmp.name}{" "}
-            </option>
-          ))}
-        </select>
-        <input type="submit" />
+        <div className={style.submit}>
+          <input type="submit" />
+        </div>
       </form>
     </div>
   );

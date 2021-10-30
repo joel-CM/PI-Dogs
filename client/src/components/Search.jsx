@@ -23,7 +23,11 @@ const Formulario = ({ getDogById }) => {
   return (
     <div className="container">
       <form onSubmit={handleSubmit} className={style.flex}>
-        <input type="text" placeholder="Buscar" onChange={handleChange} />
+        <input
+          type="text"
+          placeholder="Ej: Cocker Spaniel..."
+          onChange={handleChange}
+        />
         <input type="submit" value="Buscar" />
       </form>
     </div>

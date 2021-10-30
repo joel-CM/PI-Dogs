@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Dog from "./Dog";
 import style from "./Dogs.module.css";
 import { connect } from "react-redux";
 
@@ -29,27 +30,23 @@ const Dogs = ({ dogs, pInicio, pFinal, pagLeft, pagRight }) => {
       </div>
 
       <div className={style.dogContainer}>
-        {myDogs?.map((dog) => (
-          <div key={dog.id} className={style.card}>
-            <h4 className={style.title}>{dog.name}</h4>
-            <div className={style.dogImg}>
-              <img src={dog.image} className={style.image} alt={myDogs.name} />
-            </div>
-            <div className={style.temp}>
-              <p>
-                {" "}
-                <span> Temperament: </span>
-                {dog.temperament}
-              </p>
-            </div>
-            <div className={style.weight}>
-              <p>
-                <span>Weight: </span>
-                {dog.weight}
-              </p>
-            </div>
-          </div>
-        ))}
+        {myDogs.length >= 1 ? (
+          myDogs.map((dog) => <Dog key={dog.id} dog={dog} />)
+        ) : (
+          <h3>Cargando...</h3>
+        )}
+      </div>
+
+      <div className={style.paginations}>
+        <button disabled={pInicio < 1 && true} onClick={() => pagLeft()}>
+          ver menos
+        </button>
+        <button
+          disabled={pFinal > dogs.length - 1 && true}
+          onClick={() => pagRight()}
+        >
+          ver más →
+        </button>
       </div>
     </div>
   );

@@ -3,6 +3,30 @@
   justify-content: flex-end;
   align-items: center;
 }
-.flex input[type="text"]::placeholder {
-  color: red;
+
+.flex input[type="text"] {
+  height: 30px;
+  padding: 0;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #000;
+  border-radius: 5px;
+}
+
+.flex input[type="submit"] {
+  width: 100px;
+  padding: 0;
+  margin-left: 5px;
+  background: #000;
+  height: 30px;
+  color: cyan;
+  border: 3px solid cyan;
+  border-radius: 5px;
+  cursor: pointer;
+  transition-duration: 0.5s;
+}
+
+.flex input[type="submit"]:hover {
+  background-color: transparent;
+  color: #000;
 }

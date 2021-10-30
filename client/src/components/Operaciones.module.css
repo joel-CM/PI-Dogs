@@ -2,3 +2,18 @@
   display: flex;
   justify-content: center;
 }
+.operationContainer div {
+  margin: 0 10px;
+}
+
+.btn_createDog {
+  width: 100px;
+  height: 20px;
+  border-radius: 5px;
+  color: cyan;
+  background: #000;
+}
+.link {
+  color: cyan;
+  text-decoration: none;
+}

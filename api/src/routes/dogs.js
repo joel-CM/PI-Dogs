@@ -104,8 +104,14 @@ route.get("/:idRace", async (req, res) => {
 });
 
 route.post("/", async (req, res) => {
-  const { name, height, weight, life_span, temperament } = req.body;
-  const createdDog = await Dog.create({ name, height, weight, life_span });
+  const { name, height, weight, life_span, image, temperament } = req.body;
+  const createdDog = await Dog.create({
+    name,
+    height,
+    weight,
+    image,
+    life_span,
+  });
 
   for (let i = 0; i < temperament.length; i++) {
     let idTmp = await Temperament.findAll({
@@ -116,7 +122,7 @@ route.post("/", async (req, res) => {
     });
     createdDog.addTemperament(idTmp[0].id);
   }
-
+  console.log("Nombre: " + name + "Image: " + image);
   res.status(200).json({ messae: "dog create!" });
 });
 

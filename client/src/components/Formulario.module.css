@@ -1,31 +1,78 @@
 .container {
   width: 90%;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+.back {
+  margin: 40px;
+}
+
 .formContainer {
-  width: 20%;
+  width: 50vw;
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+  border: 4px solid #000;
 }
 
 .formContainer input {
-  margin: 5px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #000;
+  border-radius: 20%;
+  margin: 10px 0;
 }
+
+.formContainer input::placeholder {
+  padding: 10px;
+}
+
+.dogName {
+  display: flex;
+  flex-direction: column;
+}
+
+.dogName,
+.dogSelectTmps {
+  margin: 0 auto;
+}
+
 .height,
 .weight,
-.life_span {
+.lifeSpan {
   display: flex;
+  justify-content: space-evenly;
+  margin: 10px 0;
 }
 .height input,
 .weight input,
-.life_span {
-  width: 100%;
+.lifeSpan input {
+  max-width: 100px;
 }
-.life_span input {
-  width: 100%;
+.minHeight,
+.maxHeight,
+.minWeight,
+.maxWeight,
+.minLifeSpan,
+.maxLifeSpan,
+.dogImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.dogSelectTmps {
+  display: flex;
+  flex-direction: column;
+  margin: 10px auto;
+}
+
+.submit {
+  margin: 10px auto;
 }
