@@ -34,7 +34,20 @@ route.get("/", async (req, res) => {
       model: Temperament,
     },
   });
-  races.push(...racesDB);
+
+  const myDogsModel = racesDB.map((dog) => {
+    return {
+      id: dog.id,
+      name: dog.name,
+      height: dog.height,
+      weight: dog.weight,
+      life_span: dog.life_span,
+      image: dog.image,
+      createdInDb: dog.createdInDb,
+      temperament: dog.temperaments.map((tmp) => tmp.name).join(", "),
+    };
+  });
+  races.push(...myDogsModel);
 
   if (!name) {
     return res.json(races);
@@ -88,9 +101,6 @@ route.get("/:idRace", async (req, res) => {
       console.log(err);
     }
   }
-
-  // if (raceById) return res.json(showRace);
-  // else return res.json({ message: "Id race not found" });
 });
 
 route.post("/", async (req, res) => {

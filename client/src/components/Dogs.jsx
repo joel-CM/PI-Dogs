@@ -4,7 +4,9 @@ import { connect } from "react-redux";
 
 import { pagLeft, pagRight } from "../actions/actions";
 
+//todo: componente <<<<--->>>
 const Dogs = ({ dogs, pInicio, pFinal, pagLeft, pagRight }) => {
+  //todo: nuevo state de dogs
   const [myDogs, setMyDogs] = useState([]);
 
   useEffect(() => {
@@ -60,3 +62,4 @@ const mapStatetoProps = (state) => ({
 });
 
 export default connect(mapStatetoProps, { pagLeft, pagRight })(Dogs);
+// export default connect(estados, acciones)(Dogs);

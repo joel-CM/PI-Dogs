@@ -2,8 +2,11 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
+
+//todo: ------> rutas
 const dogRoutes = require("./routes/dogs");
 const temRoutes = require("./routes/temperaments");
+const imgNotfound = require("./routes/dog_not_found");
 
 require("./db.js");
 
@@ -30,6 +33,7 @@ server.use((req, res, next) => {
 
 server.use("/api/dogs", dogRoutes);
 server.use("/api/temperaments", temRoutes);
+server.use("/api/not_found", imgNotfound);
 
 // Error catching endware.
 server.use((err, req, res, next) => {
