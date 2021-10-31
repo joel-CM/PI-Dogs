@@ -1,0 +1,58 @@
+.container {
+  width: 90%;
+  min-height: 100vh;
+  margin: 0 auto;
+  background-image: url("http://localhost:3001/api/dog_img");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+}
+
+.btn_link {
+  display: flex;
+  align-items: center;
+  width: 150px;
+  height: 30px;
+  position: absolute;
+  top: 38%;
+  right: 100px;
+  background: #000;
+  color: #fff;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.link {
+  height: 30px;
+  line-height: 30px;
+  transition: 0.4s ease-in-out all;
+  position: absolute;
+  left: 24%;
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn_link span {
+  position: absolute;
+  left: -20px;
+  transition: 0.3s ease-in-out all;
+  opacity: 0;
+}
+
+.btn_link:hover span {
+  opacity: 1;
+  left: 100px;
+}
+
+.btn_link:hover .link {
+  width: 100%;
+  text-align: start;
+  left: 2%;
+  background: transparent;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+}

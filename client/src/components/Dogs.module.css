@@ -16,3 +16,9 @@
   justify-content: center;
   position: relative;
 }
+
+.iconRight,
+.iconLeft {
+  font-size: 30px;
+  cursor: pointer;
+}

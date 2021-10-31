@@ -13,8 +13,8 @@
   border-radius: 5px;
 }
 
-.flex input[type="submit"] {
-  width: 100px;
+.flex button[type="submit"] {
+  width: 50px;
   padding: 0;
   margin-left: 5px;
   height: 30px;
@@ -25,7 +25,7 @@
   transition-duration: 0.5s;
 }
 
-.flex input[type="submit"]:hover {
+.flex button[type="submit"]:hover {
   background-color: transparent;
   color: #000;
 }

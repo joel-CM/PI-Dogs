@@ -17,3 +17,14 @@
   color: #000;
   text-decoration: none;
 }
+
+.getDogs,
+.orderBy {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+}
+.iconFilter {
+  font-size: 25px;
+  margin-right: 5px;
+}

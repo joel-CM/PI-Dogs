@@ -3,6 +3,7 @@ import style from "./Operaciones.module.css";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
+//todo: actions <<<------>>>
 import {
   getDogsCreated,
   getDogs,
@@ -11,6 +12,9 @@ import {
   orderByTemperamentAsc,
   orderByTemperamentDes,
 } from "../actions/actions";
+
+//todo: icons <<<--------->>>
+import { BsFilterRight } from "react-icons/bs";
 
 const Operaciones = ({
   getDogsCreated,
@@ -40,16 +44,16 @@ const Operaciones = ({
 
   return (
     <div className={style.operationContainer}>
-      <div className="getDogs">
-        <b>Get Dogs: </b>
+      <div className={style.getDogs}>
+        <BsFilterRight className={style.iconFilter} />
         <select onChange={handleOperations}>
           <option value="all_dogs">All Dogs</option>
           <option value="dogs_created">Dogs Created</option>
         </select>
       </div>
 
-      <div className="orderBy">
-        <b>order by: </b>
+      <div className={style.orderBy}>
+        <BsFilterRight className={style.iconFilter} />
         <select onChange={handleOperations}>
           <option value="order_by_weight_asc">Order By Weight ASC</option>
           <option value="order_by_weight_des">Order By Weight DES</option>

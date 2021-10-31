@@ -184,6 +184,7 @@ const Formulario = ({ tmps, getTemperaments }) => {
             type="text"
             id="image"
             name="image"
+            placeholder="https://example/image.jpg"
             value={input.image}
             onChange={handleInput}
           />

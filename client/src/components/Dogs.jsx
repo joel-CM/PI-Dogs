@@ -3,7 +3,13 @@ import Dog from "./Dog";
 import style from "./Dogs.module.css";
 import { connect } from "react-redux";
 
+//todo: actions
 import { pagLeft, pagRight } from "../actions/actions";
+//todo: icons <<--->>
+import {
+  IoIosArrowDroprightCircle,
+  IoIosArrowDropleftCircle,
+} from "react-icons/io";
 
 //todo: componente <<<<--->>>
 const Dogs = ({ dogs, pInicio, pFinal, pagLeft, pagRight }) => {
@@ -18,14 +24,17 @@ const Dogs = ({ dogs, pInicio, pFinal, pagLeft, pagRight }) => {
     <div className={style.dogs}>
       {/* //todo: paginado <-----------> */}
       <div className={style.paginations}>
+        {/* //todo: pag left */}
         <button disabled={pInicio < 1 && true} onClick={() => pagLeft()}>
-          ver menos
+          <IoIosArrowDropleftCircle className={style.iconLeft} />
         </button>
+
+        {/* //todo: pag right */}
         <button
           disabled={pFinal > dogs.length - 1 && true}
           onClick={() => pagRight()}
         >
-          ver más →
+          <IoIosArrowDroprightCircle className={style.iconRight} />
         </button>
       </div>
 
@@ -38,14 +47,17 @@ const Dogs = ({ dogs, pInicio, pFinal, pagLeft, pagRight }) => {
       </div>
 
       <div className={style.paginations}>
+        {/* //todo: pag left */}
         <button disabled={pInicio < 1 && true} onClick={() => pagLeft()}>
-          ver menos
+          <IoIosArrowDropleftCircle className={style.iconLeft} />
         </button>
+
+        {/* //todo: pag right */}
         <button
           disabled={pFinal > dogs.length - 1 && true}
           onClick={() => pagRight()}
         >
-          ver más →
+          <IoIosArrowDroprightCircle className={style.iconRight} />
         </button>
       </div>
     </div>
