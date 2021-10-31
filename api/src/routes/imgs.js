@@ -7,7 +7,11 @@ const route = Router();
 
 const axios = require("axios");
 
-route.get("/", function (req, res, next) {
+route.get("/not_found", function (req, res, next) {
   res.sendFile(__dirname + "/img/interrogante.png");
+});
+
+route.get("/dog_img", function (req, res, next) {
+  res.sendFile(__dirname + "/img/background-dog.jpg");
 });
 module.exports = route;
