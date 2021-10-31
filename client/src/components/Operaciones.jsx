@@ -3,8 +3,6 @@ import style from "./Operaciones.module.css";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
-import Search from "./Search";
-
 import {
   getDogsCreated,
   getDogs,

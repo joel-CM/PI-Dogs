@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import style from "./Formulario.module.css";
 import axios from "axios";
 
@@ -77,14 +77,15 @@ const Formulario = ({ tmps, getTemperaments }) => {
     alert("perro creado (creo...)");
   };
 
-  //   <div className={style.back}>
-  //   <button>
-  //     <Link to="/home">BACK</Link>
-  //   </button>
-  // </div>
-
   return (
     <div className={style.container}>
+      <div className={style.back}>
+        <button className={style.btnBack}>
+          <NavLink to="/home" className={style.linkBack}>
+            BACK
+          </NavLink>
+        </button>
+      </div>
       <form className={style.formContainer} onSubmit={handleSubmit}>
         <div className={style.dogName}>
           <label htmlFor="name">Name/Race</label>
