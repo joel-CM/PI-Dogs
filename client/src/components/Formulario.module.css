@@ -86,3 +86,7 @@
 .submit {
   margin: 10px auto;
 }
+.submit input {
+  width: 100px;
+  cursor: pointer;
+}

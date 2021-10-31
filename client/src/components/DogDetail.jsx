@@ -3,6 +3,8 @@ import style from "./DogDetail.module.css";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 
+import { NavLink } from "react-router-dom";
+
 const DogDetail = ({ dogs }) => {
   let params = useParams();
 
@@ -15,15 +17,22 @@ const DogDetail = ({ dogs }) => {
 
   return (
     <div className={style.detailContainer}>
+      <button className={style.btn}>
+        <NavLink to="/home" className={style.navLink}>
+          {" "}
+          <a className={style.link}>BACK</a>{" "}
+        </NavLink>
+      </button>
+
       <div className={style.container}>
         <div className={style.containerImage}>
           <img
-            src={dogDetail?.image}
+            src={dogDetail.image ? dogDetail.image : null}
             className={style.image}
-            alt={dogDetail.image}
+            alt={dogDetail.image ? dogDetail.image : null}
           />
         </div>
-        <div className="dogInfo">
+        <div className={style.dogInfo}>
           <h4>{dogDetail?.name}</h4>
           <p>
             <b>Height: </b> {dogDetail?.height}{" "}
