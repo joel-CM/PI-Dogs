@@ -1,5 +1,5 @@
 .card {
-  width: 200px;
+  width: 220px;
   margin: 5px;
   padding: 3px;
   background: transparent;
@@ -18,11 +18,10 @@
 }
 .dogImg {
   margin: auto;
-  width: 100%;
-  /*todo: ando especifico a las cards height: 200px; */
-  /* background: #d3d3d3; */
+  width: 200px;
 }
 .image {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: fill;

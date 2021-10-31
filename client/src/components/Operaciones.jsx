@@ -10,6 +10,8 @@ import {
   getDogs,
   orderByWeightAsc,
   orderByWeightDes,
+  orderByTemperamentAsc,
+  orderByTemperamentDes,
 } from "../actions/actions";
 
 const Operaciones = ({
@@ -17,6 +19,8 @@ const Operaciones = ({
   getDogs,
   orderByWeightAsc,
   orderByWeightDes,
+  orderByTemperamentAsc,
+  orderByTemperamentDes,
 }) => {
   const handleOperations = (e) => {
     if (e.target.value === "all_dogs") {
@@ -29,6 +33,10 @@ const Operaciones = ({
     } else if (e.target.value === "order_by_weight_des") {
       //todo -> order
       return orderByWeightDes();
+    } else if (e.target.value === "order_by_tmp_asc") {
+      return orderByTemperamentAsc();
+    } else if (e.target.value === "order_by_tmp_des") {
+      return orderByTemperamentDes();
     }
   };
 
@@ -47,6 +55,8 @@ const Operaciones = ({
         <select onChange={handleOperations}>
           <option value="order_by_weight_asc">Order By Weight ASC</option>
           <option value="order_by_weight_des">Order By Weight DES</option>
+          <option value="order_by_tmp_asc">Order By Temperament ASC</option>
+          <option value="order_by_tmp_des">Order By Temperament DES</option>
         </select>
       </div>
 
@@ -66,4 +76,6 @@ export default connect(null, {
   getDogs,
   orderByWeightAsc,
   orderByWeightDes,
+  orderByTemperamentAsc,
+  orderByTemperamentDes,
 })(Operaciones);

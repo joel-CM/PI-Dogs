@@ -8,6 +8,8 @@ export const PAG_LEFT = "PAG_LEFT";
 export const PAG_RIGHT = "PAG_RIGHT";
 export const ORDER_BY_WEIGHT_ASC = "ORDER_BY_WEIGHT_ASC";
 export const ORDER_BY_WEIGHT_DES = "ORDER_BY_WEIGHT_DES";
+export const ORDER_BY_TEMPERAMENT_ASC = "ORDER_BY_TEMPERAMENT_ASC";
+export const ORDER_BY_TEMPERAMENT_DES = "ORDER_BY_TEMPERAMENT_DES";
 
 //todo ->>> Actiosn <<----------------->>
 export function getDogs() {
@@ -74,5 +76,17 @@ export function orderByWeightAsc() {
 export function orderByWeightDes() {
   return {
     type: ORDER_BY_WEIGHT_DES,
+  };
+}
+
+export function orderByTemperamentAsc() {
+  return {
+    type: ORDER_BY_TEMPERAMENT_ASC,
+  };
+}
+
+export function orderByTemperamentDes() {
+  return {
+    type: ORDER_BY_TEMPERAMENT_DES,
   };
 }

@@ -29,7 +29,6 @@ module.exports = (sequelize) => {
       },
       image: {
         type: DataTypes.TEXT,
-        isUrl: true,
         defaultValue: "http://localhost:3001/api/not_found",
       },
       createdInDb: {

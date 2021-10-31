@@ -17,10 +17,9 @@
   width: 100px;
   padding: 0;
   margin-left: 5px;
-  background: #000;
   height: 30px;
-  color: cyan;
-  border: 3px solid cyan;
+  color: #000;
+  border: 3px solid #000;
   border-radius: 5px;
   cursor: pointer;
   transition-duration: 0.5s;

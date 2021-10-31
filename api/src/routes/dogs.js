@@ -109,7 +109,7 @@ route.post("/", async (req, res) => {
     name,
     height,
     weight,
-    image,
+    image: Array.from(image).length > 6 ? image : undefined,
     life_span,
   });
 
