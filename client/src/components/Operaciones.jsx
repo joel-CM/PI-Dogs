@@ -65,7 +65,7 @@ const Operaciones = ({
       <div className={style.createDog}>
         <button className={style.btn_createDog}>
           <NavLink to="/create" className={style.link}>
-            Ceate Dog
+            Create Dog
           </NavLink>
         </button>
       </div>

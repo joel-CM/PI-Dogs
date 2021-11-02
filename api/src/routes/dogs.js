@@ -35,6 +35,7 @@ route.get("/", async (req, res) => {
     },
   });
 
+  //todo: cambio un poco la estructura del obj de cada dogs de la DB
   const myDogsModel = racesDB.map((dog) => {
     return {
       id: dog.id,
@@ -47,17 +48,20 @@ route.get("/", async (req, res) => {
       temperament: dog.temperaments.map((tmp) => tmp.name).join(", "),
     };
   });
+
+  //todo: junto todos los perros de la API con los de la DB
+  //todo: races ahora es un arrau con todos los dogs necesarios
   races.push(...myDogsModel);
 
   if (!name) {
-    return res.json(races);
+    return res.status(200).json(races);
   } else {
     let minName = name;
     const race = races.find((race) =>
       race.name.toLowerCase().includes(minName.toLowerCase())
     );
     if (race) return res.json(race);
-    else return res.json({ message: "Race not found" });
+    else return res.status(404).json({ message: "Race not found" });
   }
 });
 
