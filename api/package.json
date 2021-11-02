@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon -L",
-    "test": "jest tests/models/dog.test.js --watchAll"
+    "test": "jest"
   },
   "author": "Henry",
   "license": "ISC",

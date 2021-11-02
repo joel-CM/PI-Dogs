@@ -13,30 +13,30 @@ route.get("/", async (req, res) => {
 
   const dogs = await axios.get(`https://api.thedogapi.com/v1/breeds`);
 
-  const races = dogs.data.map((race) => {
-    let imperial_1 = parseInt(race.weight.imperial.split("-")[0]);
-    let imperial_2 = parseInt(race.weight.imperial.split("-")[1]);
+  const breeds = dogs.data.map((breed) => {
+    let imperial_1 = parseInt(breed.weight.imperial.split("-")[0]);
+    let imperial_2 = parseInt(breed.weight.imperial.split("-")[1]);
     let tmp = imperial_1 + imperial_2 / 2;
     return {
-      id: race.id,
-      name: race.name,
-      height: race.height.imperial,
+      id: breed.id,
+      name: breed.name,
+      height: breed.height.imperial,
       weight: tmp,
-      life_span: race.life_span,
-      temperament: race.temperament,
-      image: race.image.url,
+      life_span: breed.life_span,
+      temperament: breed.temperament,
+      image: breed.image.url,
     };
   });
 
   //todo -> traemos razas de db y juntamos con lo de api
-  const racesDB = await Dog.findAll({
+  const breedDB = await Dog.findAll({
     include: {
       model: Temperament,
     },
   });
 
   //todo: cambio un poco la estructura del obj de cada dogs de la DB
-  const myDogsModel = racesDB.map((dog) => {
+  const myDogsModel = breedDB.map((dog) => {
     return {
       id: dog.id,
       name: dog.name,
@@ -50,44 +50,44 @@ route.get("/", async (req, res) => {
   });
 
   //todo: junto todos los perros de la API con los de la DB
-  //todo: races ahora es un arrau con todos los dogs necesarios
-  races.push(...myDogsModel);
+  //todo: razas ahora es un array con todos los dogs necesarios
+  breeds.push(...myDogsModel);
 
   if (!name) {
-    return res.status(200).json(races);
+    return res.status(200).json(breeds);
   } else {
     let minName = name;
-    const race = races.find((race) =>
-      race.name.toLowerCase().includes(minName.toLowerCase())
+    const breed = breeds.find((breed) =>
+      breed.name.toLowerCase().includes(minName.toLowerCase())
     );
-    if (race) return res.json(race);
-    else return res.status(404).json({ message: "Race not found" });
+    if (breed) return res.json(breed);
+    else return res.status(404).json({ message: "Breed not found" });
   }
 });
 
 route.get("/:idRace", async (req, res) => {
-  const { idRace } = req.params;
+  const { idBreed } = req.params;
 
-  const race = await axios.get(
+  const breed = await axios.get(
     `https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`
   );
 
-  if (idRace.length < 10) {
+  if (idBreed.length < 10) {
     try {
-      let raceById = race.data.find((race) => race.id === parseInt(idRace));
+      let breedById = breed.data.find((breed) => breed.id === parseInt(idBreed));
 
-      let imperial_1 = parseInt(raceById.temperament.split("-")[0]);
-      let imperial_2 = parseInt(raceById.temperament.split("-")[1]);
+      let imperial_1 = parseInt(breedById.temperament.split("-")[0]);
+      let imperial_2 = parseInt(breedById.temperament.split("-")[1]);
       let tmp = imperial_1 + imperial_2 / 2;
 
       let showRace = {
-        id: raceById.id,
-        name: raceById.name,
-        height: raceById.height.imperial,
-        weight: raceById.weight.imperial,
-        life_span: raceById.life_span,
+        id: breedById.id,
+        name: breedById.name,
+        height: breedById.height.imperial,
+        weight: breedById.weight.imperial,
+        life_span: breedById.life_span,
         temperament: tmp,
-        image: raceById.image.url,
+        image: breedById.image.url,
       };
 
       console.log("Raza por IDDDDDDD " + typeof idRace + " - " + idRace);
@@ -97,10 +97,10 @@ route.get("/:idRace", async (req, res) => {
     }
   } else {
     try {
-      let raceById = await Dog.findByPk(idRace);
+      let breedById = await Dog.findByPk(idRace);
 
       console.log("taza por UUIDDDDDDDDDDDDD" + typeof idRace + " - " + idRace);
-      res.json(raceById);
+      res.json(breedById);
     } catch (err) {
       console.log(err);
     }
@@ -126,7 +126,7 @@ route.post("/", async (req, res) => {
     });
     createdDog.addTemperament(idTmp[0].id);
   }
-  console.log("Nombre: " + name + "Image: " + image);
+  // console.log("Nombre: " + name + "Image: " + image);
   res.status(200).json({ messae: "dog create!" });
 });
 

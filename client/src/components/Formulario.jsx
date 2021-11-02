@@ -88,7 +88,7 @@ const Formulario = ({ tmps, getTemperaments }) => {
       </div>
       <form className={style.formContainer} onSubmit={handleSubmit}>
         <div className={style.dogName}>
-          <label htmlFor="name">Name/Race</label>
+          <label htmlFor="name">Name</label>
           <input
             id="name"
             type="text"

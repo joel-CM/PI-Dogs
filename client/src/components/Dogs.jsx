@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 
 //todo: actions
 import { pagLeft, pagRight } from "../actions/actions";
+
 //todo: icons <<--->>
 import {
   IoIosArrowDroprightCircle,
@@ -70,5 +71,6 @@ const mapStatetoProps = (state) => ({
   pFinal: state.pFinal,
 });
 
+// todo: conectamos con la store
 export default connect(mapStatetoProps, { pagLeft, pagRight })(Dogs);
 // export default connect(estados, acciones)(Dogs);

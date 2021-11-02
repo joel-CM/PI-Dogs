@@ -1,4 +1,10 @@
-const { describe, expect, it, beforeAll } = require("@jest/globals");
+const {
+  describe,
+  expect,
+  it,
+  beforeAll,
+  beforeEach,
+} = require("@jest/globals");
 const { Dog, conn } = require("../../src/db.js");
 
 describe("Dog model", () => {
