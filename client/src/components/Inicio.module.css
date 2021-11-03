@@ -1,5 +1,240 @@
+/* neon ----------------------- */
+@keyframes turnonlights {
+  0% {
+    color: #6d5669;
+    text-shadow: 0 0 3px #635861, 0 0 5px #635861;
+  }
+  1% {
+    color: #ff55de;
+    text-shadow: 0 0 5px #ff99de, 0 0 10px #ff99de, 0 0 17px #ff00de,
+      0 0 38px #ff00de;
+  }
+  4% {
+    color: #ff55de;
+    text-shadow: 0 0 5px #ff99de, 0 0 10px #ff99de, 0 0 17px #ff00de,
+      0 0 38px #ff00de;
+  }
+  7% {
+    color: #6d5669;
+    text-shadow: 0 0 3px #635861, 0 0 5px #635861;
+  }
+  8% {
+    color: #ff55de;
+    text-shadow: 0 0 5px #ff99de, 0 0 10px #ff99de, 0 0 17px #ff00de,
+      0 0 38px #ff00de;
+  }
+  12% {
+    color: #6d5669;
+    text-shadow: 0 0 3px #635861, 0 0 5px #635861;
+  }
+  22% {
+    color: #6d5669;
+    text-shadow: 0 0 3px #635861, 0 0 5px #635861;
+  }
+  23% {
+    color: #ff55de;
+    text-shadow: 0 0 5px #ff99de, 0 0 10px #ff99de, 0 0 15px #ff99de,
+      0 0 20px #ff00de, 0 0 30px #ff00de, 0 0 40px #ff00de;
+  }
+  26% {
+    color: #6d5669;
+    text-shadow: 0 0 3px #635861, 0 0 5px #635861;
+  }
+  28% {
+    color: #ff55de;
+    text-shadow: 0 0 5px #ff99de, 0 0 10px #ff99de, 0 0 17px #ff00de,
+      0 0 38px #ff00de;
+  }
+  34% {
+    color: #ff55de;
+    text-shadow: 0 0 5px #ff99de, 0 0 10px #ff99de, 0 0 15px #ff99de,
+      0 0 20px #ff00de, 0 0 30px #ff00de, 0 0 40px #ff00de;
+  }
+  36% {
+    color: #6d5669;
+    text-shadow: 0 0 3px #635861, 0 0 5px #635861;
+  }
+  42% {
+    color: #ff55de;
+    text-shadow: 0 0 5px #ff99de, 0 0 10px #ff99de, 0 0 17px #ff00de,
+      0 0 38px #ff00de;
+  }
+  55% {
+    color: #ff55de;
+    text-shadow: 0 0 5px #ff99de, 0 0 10px #ff99de, 0 0 15px #ff99de,
+      0 0 20px #ff00de, 0 0 30px #ff00de, 0 0 40px #ff00de;
+  }
+  60% {
+    color: #6d5669;
+    text-shadow: 0 0 3px #635861, 0 0 5px #635861;
+  }
+  63% {
+    color: #ff55de;
+    text-shadow: 0 0 5px #ff99de, 0 0 10px #ff99de, 0 0 15px #ff99de,
+      0 0 20px #ff00de, 0 0 30px #ff00de, 0 0 40px #ff00de;
+  }
+  67% {
+    color: #6d5669;
+    text-shadow: 0 0 3px #635861, 0 0 5px #635861;
+  }
+  72% {
+    color: #6d5669;
+    text-shadow: 0 0 3px #635861, 0 0 5px #635861;
+  }
+  73% {
+    color: #ff55de;
+    text-shadow: 0 0 5px #ff99de, 0 0 10px #ff99de, 0 0 17px #ff00de,
+      0 0 38px #ff00de;
+  }
+  76% {
+    color: #6d5669;
+    text-shadow: 0 0 3px #635861, 0 0 5px #635861;
+  }
+  78% {
+    color: #ff55de;
+    text-shadow: 0 0 5px #ff99de, 0 0 10px #ff99de, 0 0 17px #ff00de,
+      0 0 38px #ff00de;
+  }
+  84% {
+    color: #ff55de;
+    text-shadow: 0 0 5px #ff99de, 0 0 10px #ff99de, 0 0 15px #ff99de,
+      0 0 20px #ff00de, 0 0 30px #ff00de, 0 0 40px #ff00de;
+  }
+  86% {
+    color: #6d5669;
+    text-shadow: 0 0 3px #635861, 0 0 5px #635861;
+  }
+  96% {
+    color: #ff55de;
+    text-shadow: 0 0 5px #ff99de, 0 0 10px #ff99de, 0 0 17px #ff00de,
+      0 0 38px #ff00de;
+  }
+  100% {
+    color: #ff55de;
+    text-shadow: 0 0 5px #ff99de, 0 0 10px #ff99de, 0 0 15px #ff99de,
+      0 0 20px #ff00de, 0 0 30px #ff00de, 0 0 40px #ff00de;
+  }
+}
+
+/* shaodw tec animation */
+@keyframes tecShadow {
+  0% {
+    color: #6d5669;
+    text-shadow: 0 0 3px #635861, 0 0 5px #635861;
+  }
+  1% {
+    color: #ff55de;
+    text-shadow: 0 0 5px #ff99de, 0 0 10px #ff99de, 0 0 17px #ff00de,
+      0 0 38px #ff00de;
+  }
+  4% {
+    color: #ff55de;
+    text-shadow: 0 0 5px #ff99de, 0 0 10px #ff99de, 0 0 17px #ff00de,
+      0 0 38px #ff00de;
+  }
+  7% {
+    color: #6d5669;
+    text-shadow: 0 0 3px #635861, 0 0 5px #635861;
+  }
+  8% {
+    color: #ff55de;
+    text-shadow: 0 0 5px #ff99de, 0 0 10px #ff99de, 0 0 17px #ff00de,
+      0 0 38px #ff00de;
+  }
+  12% {
+    color: #6d5669;
+    text-shadow: 0 0 3px #635861, 0 0 5px #635861;
+  }
+  22% {
+    color: #6d5669;
+    text-shadow: 0 0 3px #635861, 0 0 5px #635861;
+  }
+  23% {
+    color: #ff55de;
+    text-shadow: 0 0 5px #ff99de, 0 0 10px #ff99de, 0 0 15px #ff99de,
+      0 0 20px #ff00de, 0 0 30px #ff00de, 0 0 40px #ff00de;
+  }
+  26% {
+    color: #6d5669;
+    text-shadow: 0 0 3px #635861, 0 0 5px #635861;
+  }
+  28% {
+    color: #ff55de;
+    text-shadow: 0 0 5px #ff99de, 0 0 10px #ff99de, 0 0 17px #ff00de,
+      0 0 38px #ff00de;
+  }
+  34% {
+    color: #ff55de;
+    text-shadow: 0 0 5px #ff99de, 0 0 10px #ff99de, 0 0 15px #ff99de,
+      0 0 20px #ff00de, 0 0 30px #ff00de, 0 0 40px #ff00de;
+  }
+  36% {
+    color: #6d5669;
+    text-shadow: 0 0 3px #635861, 0 0 5px #635861;
+  }
+  42% {
+    color: #ff55de;
+    text-shadow: 0 0 5px #ff99de, 0 0 10px #ff99de, 0 0 17px #ff00de,
+      0 0 38px #ff00de;
+  }
+  55% {
+    color: #ff55de;
+    text-shadow: 0 0 5px #ff99de, 0 0 10px #ff99de, 0 0 15px #ff99de,
+      0 0 20px #ff00de, 0 0 30px #ff00de, 0 0 40px #ff00de;
+  }
+  60% {
+    color: #6d5669;
+    text-shadow: 0 0 3px #635861, 0 0 5px #635861;
+  }
+  63% {
+    color: #ff55de;
+    text-shadow: 0 0 5px #ff99de, 0 0 10px #ff99de, 0 0 15px #ff99de,
+      0 0 20px #ff00de, 0 0 30px #ff00de, 0 0 40px #ff00de;
+  }
+  67% {
+    color: #6d5669;
+    text-shadow: 0 0 3px #635861, 0 0 5px #635861;
+  }
+  72% {
+    color: #6d5669;
+    text-shadow: 0 0 3px #635861, 0 0 5px #635861;
+  }
+  73% {
+    color: #ff55de;
+    text-shadow: 0 0 5px #ff99de, 0 0 10px #ff99de, 0 0 17px #ff00de,
+      0 0 38px #ff00de;
+  }
+  76% {
+    color: #6d5669;
+    text-shadow: 0 0 3px #635861, 0 0 5px #635861;
+  }
+  78% {
+    color: #ff55de;
+    text-shadow: 0 0 5px #ff99de, 0 0 10px #ff99de, 0 0 17px #ff00de,
+      0 0 38px #ff00de;
+  }
+  84% {
+    color: #ff55de;
+    text-shadow: 0 0 5px #ff99de, 0 0 10px #ff99de, 0 0 15px #ff99de,
+      0 0 20px #ff00de, 0 0 30px #ff00de, 0 0 40px #ff00de;
+  }
+  86% {
+    color: #6d5669;
+    text-shadow: 0 0 3px #635861, 0 0 5px #635861;
+  }
+  96% {
+    color: #ff55de;
+    text-shadow: 0 0 5px #ff99de, 0 0 10px #ff99de, 0 0 17px #ff00de,
+      0 0 38px #ff00de;
+  }
+  100% {
+    color: #ff55de;
+    text-shadow: 0 0 5px #ff99de, 0 0 10px #ff99de, 0 0 15px #ff99de,
+      0 0 20px #ff00de, 0 0 30px #ff00de, 0 0 40px #ff00de;
+  }
+}
+
 .container {
-  width: 90%;
   min-height: 100vh;
   margin: 0 auto;
   background-image: url("http://localhost:3001/api/dog_img");
@@ -16,10 +251,12 @@
   position: absolute;
   top: 38%;
   right: 100px;
-  background: #000;
-  color: #fff;
+  background: transparent;
+  color: #000;
   overflow: hidden;
+  border: none;
   border-radius: 5px;
+  box-shadow: 3px 3px 2px 1px #ff55de;
 }
 
 .link {
@@ -28,8 +265,13 @@
   transition: 0.4s ease-in-out all;
   position: absolute;
   left: 24%;
-  color: #fff;
+  color: #000;
+  font-weight: bold;
   text-decoration: none;
+  animation-name: turnonlights;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
 .btn_link span {
@@ -48,11 +290,70 @@
   width: 100%;
   text-align: start;
   left: 2%;
-  background: transparent;
 }
 
 .icon {
   display: flex;
   align-items: center;
   font-size: 20px;
+  animation-name: turnonlights;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+/* titulo */
+.titulo {
+  font-family: "Helvetica Neue", sans-serif;
+  position: absolute;
+  color: #ff55de;
+  top: 20px;
+  left: 20px;
+  background-color: transparent;
+  width: 300px;
+  text-align: center;
+  box-shadow: 5px 5px 5px 2px #ff55de;
+  border-radius: 10px;
+  animation-name: turnonlights;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.tecnologias {
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  border: 2px solid #d3d3d3;
+  font-size: 3.5rem;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  box-shadow: 5px 5px 5px 2px #ff55de;
+  border-radius: 20px;
+  animation-name: tecShadow;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.tec_icon_1,
+.tec_icon_2,
+.tec_icon_3 {
+  margin: 10px;
+}
+.tec_icon_1 {
+  animation-name: rotate;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
