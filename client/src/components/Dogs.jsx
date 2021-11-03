@@ -26,12 +26,17 @@ const Dogs = ({ dogs, pInicio, pFinal, pagLeft, pagRight }) => {
       {/* //todo: paginado <-----------> */}
       <div className={style.paginations}>
         {/* //todo: pag left */}
-        <button disabled={pInicio < 1 && true} onClick={() => pagLeft()}>
+        <button
+          className={style.btn}
+          disabled={pInicio < 1 && true}
+          onClick={() => pagLeft()}
+        >
           <IoIosArrowDropleftCircle className={style.iconLeft} />
         </button>
 
         {/* //todo: pag right */}
         <button
+          className={style.btn}
           disabled={pFinal > dogs.length - 1 && true}
           onClick={() => pagRight()}
         >
@@ -49,12 +54,17 @@ const Dogs = ({ dogs, pInicio, pFinal, pagLeft, pagRight }) => {
 
       <div className={style.paginations}>
         {/* //todo: pag left */}
-        <button disabled={pInicio < 1 && true} onClick={() => pagLeft()}>
+        <button
+          className={style.btn}
+          disabled={pInicio < 1 && true}
+          onClick={() => pagLeft()}
+        >
           <IoIosArrowDropleftCircle className={style.iconLeft} />
         </button>
 
         {/* //todo: pag right */}
         <button
+          className={style.btn}
           disabled={pFinal > dogs.length - 1 && true}
           onClick={() => pagRight()}
         >

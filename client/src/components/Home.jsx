@@ -16,7 +16,7 @@ const Home = ({ getDogs }) => {
     <div className={style.container}>
       <div className={style.header}>
         <div className="title-container">
-          <h1 className={style.title}>Henry Dogs - Homee</h1>
+          <h1 className={style.title}>Henry Dogs - Home</h1>
         </div>
         <Operaciones />
       </div>

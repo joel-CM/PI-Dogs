@@ -296,6 +296,7 @@
   display: flex;
   align-items: center;
   font-size: 20px;
+  font-weight: bold;
   animation-name: turnonlights;
   animation-duration: 20s;
   animation-iteration-count: infinite;

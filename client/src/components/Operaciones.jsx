@@ -46,7 +46,7 @@ const Operaciones = ({
     <div className={style.operationContainer}>
       <div className={style.getDogs}>
         <BsFilterRight className={style.iconFilter} />
-        <select onChange={handleOperations}>
+        <select className={style.dogSelect} onChange={handleOperations}>
           <option value="all_dogs">All Dogs</option>
           <option value="dogs_created">Dogs Created</option>
         </select>
@@ -54,7 +54,7 @@ const Operaciones = ({
 
       <div className={style.orderBy}>
         <BsFilterRight className={style.iconFilter} />
-        <select onChange={handleOperations}>
+        <select className={style.orderSelect} onChange={handleOperations}>
           <option value="order_by_weight_asc">Order By Weight ASC</option>
           <option value="order_by_weight_des">Order By Weight DES</option>
           <option value="order_by_tmp_asc">Order By Temperament ASC</option>
