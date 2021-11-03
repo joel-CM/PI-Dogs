@@ -134,25 +134,26 @@
 
 .flex input[type="text"]::placeholder {
   color: #ff55de;
+}
+
+.flex button[type="submit"] {
+  width: 50px;
+  padding: 0;
+  margin: 0 5px;
+  height: 30px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  cursor: pointer;
+  transition-duration: 0.5s;
+  background: #38002f;
+  color: #ff55de;
   animation-name: turnonlights;
   animation-duration: 20s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
 
-.flex button[type="submit"] {
-  width: 50px;
-  padding: 0;
-  margin-left: 5px;
-  height: 30px;
-  color: #000;
-  border: 1px solid #000;
-  border-radius: 5px;
-  cursor: pointer;
-  transition-duration: 0.5s;
-}
-
 .flex button[type="submit"]:hover {
-  background-color: transparent;
+  background-color: #38002f;
   color: #000;
 }

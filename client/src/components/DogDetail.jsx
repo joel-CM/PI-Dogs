@@ -14,7 +14,7 @@ const DogDetail = ({ dogs }) => {
     const dogFiltered = dogs.find((dog) => dog.id == params.id);
     setDogDetail(dogFiltered);
   }, [dogs, params.id]);
-
+  
   return (
     <div className={style.detailContainer}>
       <button className={style.btn}>

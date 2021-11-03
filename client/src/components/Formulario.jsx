@@ -96,7 +96,7 @@ const Formulario = ({ tmps, getTemperaments }) => {
             placeholder="Race"
             onChange={handleInput}
             value={input.name}
-            required
+            required="t"
           />
         </div>
         <div className={style.height}>
@@ -109,7 +109,7 @@ const Formulario = ({ tmps, getTemperaments }) => {
               placeholder="Min Height"
               onChange={handleInput}
               value={input.min_height}
-              required
+              required="true"
             />
           </div>
           <div className={style.maxHeight}>
@@ -121,7 +121,7 @@ const Formulario = ({ tmps, getTemperaments }) => {
               placeholder="Max Height"
               onChange={handleInput}
               value={input.max_height}
-              required
+              required="true"
             />
           </div>
         </div>
@@ -136,7 +136,7 @@ const Formulario = ({ tmps, getTemperaments }) => {
               placeholder="Min Weight"
               onChange={handleInput}
               value={input.min_weight}
-              required
+              required="true"
             />
           </div>
           <div className={style.maxHeight}>
@@ -148,7 +148,7 @@ const Formulario = ({ tmps, getTemperaments }) => {
               placeholder="Max Weight"
               onChange={handleInput}
               value={input.max_weight}
-              required
+              required="true"
             />
           </div>
         </div>

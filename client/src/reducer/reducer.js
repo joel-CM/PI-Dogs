@@ -8,13 +8,16 @@ import {
   ORDER_BY_WEIGHT_DES,
   ORDER_BY_TEMPERAMENT_ASC,
   ORDER_BY_TEMPERAMENT_DES,
+  ORDER_BY_BREED_ASC,
+  ORDER_BY_BREED_DES,
+  FILTER_BY_SELECT,
+  GET_TMPS,
 } from "../actions/actions";
 
 const initialState = {
   pInicio: 0,
   pFinal: 8,
   dogs: [],
-  temperamentos: [],
 };
 
 export default function reducer(state = initialState, action) {
@@ -58,6 +61,23 @@ export default function reducer(state = initialState, action) {
       ),
     };
   }
+
+  if (action.type === ORDER_BY_BREED_ASC) {
+    const dogsByBreedAsc = [...state.dogs];
+    return {
+      ...state,
+      dogs: dogsByBreedAsc.sort((a, b) => (a.name > b.name ? 1 : -1)),
+    };
+  }
+
+  if (action.type === ORDER_BY_BREED_DES) {
+    const dogsByBreedDes = [...state.dogs];
+    return {
+      ...state,
+      dogs: dogsByBreedDes.sort((a, b) => (a.name > b.name ? -1 : 1)),
+    };
+  }
+
   if (action.type === GET_DOG_BY_ID) {
     return {
       ...state,

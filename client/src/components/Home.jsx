@@ -5,7 +5,9 @@ import Operaciones from "./Operaciones";
 import Search from "./Search";
 
 import { connect } from "react-redux";
-import { getDogs } from "../actions/actions";
+import { Link } from "react-router-dom";
+import { getDogs } from "../actions/actions"; //actions
+import { GiDogHouse } from "react-icons/gi"; // icons
 
 const Home = ({ getDogs }) => {
   useEffect(() => {
@@ -18,6 +20,11 @@ const Home = ({ getDogs }) => {
         <div className="title-container">
           <h1 className={style.title}>Henry Dogs - Home</h1>
         </div>
+        <Link to="/" className={style.linkInicio}>
+          <a>
+            <GiDogHouse className={style.inicio} />
+          </a>
+        </Link>
         <Operaciones />
       </div>
 

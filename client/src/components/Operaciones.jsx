@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import style from "./Operaciones.module.css";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
@@ -11,11 +11,14 @@ import {
   orderByWeightDes,
   orderByTemperamentAsc,
   orderByTemperamentDes,
+  orderByBreedAsc,
+  orderByBreedDes,
 } from "../actions/actions";
 
 //todo: icons <<<--------->>>
 import { BsFilterRight } from "react-icons/bs";
 
+//todo: componente
 const Operaciones = ({
   getDogsCreated,
   getDogs,
@@ -23,6 +26,8 @@ const Operaciones = ({
   orderByWeightDes,
   orderByTemperamentAsc,
   orderByTemperamentDes,
+  orderByBreedAsc,
+  orderByBreedDes,
 }) => {
   const handleOperations = (e) => {
     if (e.target.value === "all_dogs") {
@@ -39,6 +44,10 @@ const Operaciones = ({
       return orderByTemperamentAsc();
     } else if (e.target.value === "order_by_tmp_des") {
       return orderByTemperamentDes();
+    } else if (e.target.value === "order_by_breed_asc") {
+      return orderByBreedAsc();
+    } else if (e.target.value === "order_by_breed_des") {
+      return orderByBreedDes();
     }
   };
 
@@ -59,6 +68,8 @@ const Operaciones = ({
           <option value="order_by_weight_des">Order By Weight DES</option>
           <option value="order_by_tmp_asc">Order By Temperament ASC</option>
           <option value="order_by_tmp_des">Order By Temperament DES</option>
+          <option value="order_by_breed_asc">Order By Breed ASC</option>
+          <option value="order_by_breed_des">Order By Breed DES</option>
         </select>
       </div>
 
@@ -80,4 +91,6 @@ export default connect(null, {
   orderByWeightDes,
   orderByTemperamentAsc,
   orderByTemperamentDes,
+  orderByBreedAsc,
+  orderByBreedDes,
 })(Operaciones);
