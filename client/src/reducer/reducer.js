@@ -124,6 +124,7 @@ export default function reducer(state = initialState, action) {
         if (dog.temperament !== undefined && dog.temperament !== "") {
           if (dog.temperament.includes(action.payload.breed)) return dog;
         }
+        return null;
       });
       return {
         ...state,

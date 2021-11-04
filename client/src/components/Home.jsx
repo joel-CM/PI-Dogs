@@ -21,9 +21,7 @@ const Home = ({ getDogs }) => {
           <h1 className={style.title}>Henry Dogs - Home</h1>
         </div>
         <Link to="/" className={style.linkInicio}>
-          <a>
-            <GiDogHouse className={style.inicio} />
-          </a>
+          <GiDogHouse className={style.inicio} />
         </Link>
         <Operaciones />
       </div>

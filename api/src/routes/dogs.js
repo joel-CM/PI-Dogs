@@ -14,9 +14,9 @@ route.get("/", async (req, res) => {
   const dogs = await axios.get(`https://api.thedogapi.com/v1/breeds`);
 
   const breeds = dogs.data.map((breed) => {
-    let imperial_1 = parseInt(breed.weight.imperial.split("-")[0]);
-    let imperial_2 = parseInt(breed.weight.imperial.split("-")[1]);
-    let tmp = imperial_1 + imperial_2 / 2;
+    let imperial_1 = breed.weight.imperial.split("-")[0];
+    let imperial_2 = breed.weight.imperial.split("-")[1];
+    let tmp = parseInt(imperial_1) + parseInt(imperial_2) / 2;
     return {
       id: breed.id,
       name: breed.name,
@@ -74,7 +74,9 @@ route.get("/:idRace", async (req, res) => {
 
   if (idBreed.length < 10) {
     try {
-      let breedById = breed.data.find((breed) => breed.id === parseInt(idBreed));
+      let breedById = breed.data.find(
+        (breed) => breed.id === parseInt(idBreed)
+      );
 
       let imperial_1 = parseInt(breedById.temperament.split("-")[0]);
       let imperial_2 = parseInt(breedById.temperament.split("-")[1]);

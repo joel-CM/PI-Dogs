@@ -11,16 +11,18 @@ const DogDetail = ({ dogs }) => {
   const [dogDetail, setDogDetail] = useState({});
 
   useEffect(() => {
-    const dogFiltered = dogs.find((dog) => dog.id == params.id);
+    const dogFiltered = dogs.find(
+      (dog) => dog.id.toString() === params.id.toString()
+    );
     setDogDetail(dogFiltered);
   }, [dogs, params.id]);
-  
+
   return (
     <div className={style.detailContainer}>
       <button className={style.btn}>
         <NavLink to="/home" className={style.navLink}>
           {" "}
-          <a className={style.link}>BACK</a>{" "}
+          <span className={style.link}> BACK </span>
         </NavLink>
       </button>
 

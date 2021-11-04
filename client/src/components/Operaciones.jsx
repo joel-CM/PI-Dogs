@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import style from "./Operaciones.module.css";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
@@ -58,7 +58,7 @@ const Operaciones = ({
 
   useEffect(() => {
     getTmps();
-  }, []);
+  }, [getTmps]);
 
   const handleSelect = (e) => {
     filterBySelect(e.target.value);
