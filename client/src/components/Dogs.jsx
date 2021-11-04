@@ -18,7 +18,7 @@ const Dogs = ({ dogs, pInicio, pFinal, pagLeft, pagRight }) => {
   const [myDogs, setMyDogs] = useState([]);
 
   useEffect(() => {
-    setMyDogs(dogs.slice(pInicio, pFinal));
+    setMyDogs(dogs?.slice(pInicio, pFinal));
   }, [dogs, pInicio, pFinal]);
 
   return (
@@ -37,7 +37,7 @@ const Dogs = ({ dogs, pInicio, pFinal, pagLeft, pagRight }) => {
         {/* //todo: pag right */}
         <button
           className={style.btn}
-          disabled={pFinal > dogs.length - 1 && true}
+          disabled={pFinal > dogs?.length - 1 && true}
           onClick={() => pagRight()}
         >
           <IoIosArrowDroprightCircle className={style.iconRight} />
@@ -45,7 +45,7 @@ const Dogs = ({ dogs, pInicio, pFinal, pagLeft, pagRight }) => {
       </div>
 
       <div className={style.dogContainer}>
-        {myDogs.length >= 1 ? (
+        {myDogs?.length >= 1 ? (
           myDogs.map((dog) => <Dog key={dog.id} dog={dog} />)
         ) : (
           <h3>Cargando...</h3>
@@ -65,7 +65,7 @@ const Dogs = ({ dogs, pInicio, pFinal, pagLeft, pagRight }) => {
         {/* //todo: pag right */}
         <button
           className={style.btn}
-          disabled={pFinal > dogs.length - 1 && true}
+          disabled={pFinal > dogs?.length - 1 && true}
           onClick={() => pagRight()}
         >
           <IoIosArrowDroprightCircle className={style.iconRight} />

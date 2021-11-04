@@ -30,7 +30,6 @@ server.use((req, res, next) => {
 });
 
 // todo-> rutas ######################
-
 server.use("/api/dogs", dogRoutes);
 server.use("/api/temperaments", temRoutes);
 server.use("/api", imgs);

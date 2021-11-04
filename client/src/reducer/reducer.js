@@ -18,6 +18,7 @@ const initialState = {
   pInicio: 0,
   pFinal: 8,
   dogs: [],
+  tmps: [],
 };
 
 export default function reducer(state = initialState, action) {
@@ -84,13 +85,14 @@ export default function reducer(state = initialState, action) {
       dogs: [{ ...action.payload }],
     };
   }
+
   if (action.type === GET_DOGS_CREATE) {
     console.log("dogs creadogs");
     return {
       ...state,
       pInicio: (state.pInicio = 0),
       pFinal: (state.pFinal = 8),
-      dogs: state.dogs.filter((dog) => dog.createdInDb === true),
+      dogs: state.dogs?.filter((dog) => dog.createdInDb === true),
     };
   }
   if (action.type === PAG_LEFT) {
@@ -106,6 +108,37 @@ export default function reducer(state = initialState, action) {
       pInicio: state.pInicio + 8,
       pFinal: state.pFinal + 8,
     };
+  }
+
+  if (action.type === GET_TMPS) {
+    return {
+      ...state,
+      tmps: action.payload,
+    };
+  }
+
+  if (action.type === FILTER_BY_SELECT) {
+    if (action.payload.breed !== "none") {
+      const filterBySelect = action.payload.dogs;
+      const filtered = filterBySelect?.filter((dog) => {
+        if (dog.temperament !== undefined && dog.temperament !== "") {
+          if (dog.temperament.includes(action.payload.breed)) return dog;
+        }
+      });
+      return {
+        ...state,
+        dogs: filtered,
+        pInicio: (state.pInicio = 0),
+        pFinal: (state.pFinal = 8),
+      };
+    } else {
+      return {
+        ...state,
+        dogs: action.payload.dogs,
+        pInicio: (state.pInicio = 0),
+        pFinal: (state.pFinal = 8),
+      };
+    }
   }
   return state;
 }

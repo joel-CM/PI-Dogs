@@ -13,6 +13,8 @@ import {
   orderByTemperamentDes,
   orderByBreedAsc,
   orderByBreedDes,
+  getTmps,
+  filterBySelect,
 } from "../actions/actions";
 
 //todo: icons <<<--------->>>
@@ -28,6 +30,9 @@ const Operaciones = ({
   orderByTemperamentDes,
   orderByBreedAsc,
   orderByBreedDes,
+  getTmps,
+  tmps,
+  filterBySelect,
 }) => {
   const handleOperations = (e) => {
     if (e.target.value === "all_dogs") {
@@ -49,6 +54,14 @@ const Operaciones = ({
     } else if (e.target.value === "order_by_breed_des") {
       return orderByBreedDes();
     }
+  };
+
+  useEffect(() => {
+    getTmps();
+  }, []);
+
+  const handleSelect = (e) => {
+    filterBySelect(e.target.value);
   };
 
   return (
@@ -73,6 +86,18 @@ const Operaciones = ({
         </select>
       </div>
 
+      <div className={style.filterSelect}>
+        <BsFilterRight className={style.iconFilter} />
+        <select className={style.select} onChange={handleSelect}>
+          <option value="none">NONE</option>
+          {tmps?.map((tmp) => (
+            <option key={tmp.id} value={tmp.name}>
+              {tmp.name}
+            </option>
+          ))}
+        </select>
+      </div>
+
       <div className={style.createDog}>
         <button className={style.btn_createDog}>
           <NavLink to="/create" className={style.link}>
@@ -84,7 +109,11 @@ const Operaciones = ({
   );
 };
 
-export default connect(null, {
+const mapStateToProps = (state) => ({
+  tmps: state.tmps,
+});
+
+export default connect(mapStateToProps, {
   getDogsCreated,
   getDogs,
   orderByWeightAsc,
@@ -93,4 +122,6 @@ export default connect(null, {
   orderByTemperamentDes,
   orderByBreedAsc,
   orderByBreedDes,
+  getTmps,
+  filterBySelect,
 })(Operaciones);

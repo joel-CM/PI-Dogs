@@ -108,9 +108,15 @@ export function orderByBreedDes() {
 }
 
 export function filterBySelect(breed) {
-  return {
-    type: FILTER_BY_SELECT,
-    payload: breed,
+  return async function (dispatch) {
+    await fetch("http://localhost:3001/api/dogs")
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch({
+          type: FILTER_BY_SELECT,
+          payload: { breed: breed, dogs: data },
+        });
+      });
   };
 }
 
