@@ -126,7 +126,7 @@
   padding: 0 10px;
   outline: none;
   border: none;
-  border-bottom: 2px solid #000;
+  border-bottom: 0.5px solid #ff99de;
   border-radius: 5px;
   background: #38002f;
   color: #ff55de;
@@ -141,7 +141,7 @@
   padding: 0;
   margin: 0 5px;
   height: 30px;
-  border: 1px solid #000;
+  border: none;
   border-radius: 5px;
   cursor: pointer;
   transition-duration: 0.5s;
