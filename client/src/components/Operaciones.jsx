@@ -88,7 +88,7 @@ const Operaciones = ({
 
       <div className={style.filterSelect}>
         <BsFilterRight className={style.iconFilter} />
-        <select className={style.select} onChange={handleSelect}>
+        <select className={style.orderSelect} onChange={handleSelect}>
           <option value="none">NONE</option>
           {tmps?.map((tmp) => (
             <option key={tmp.id} value={tmp.name}>
