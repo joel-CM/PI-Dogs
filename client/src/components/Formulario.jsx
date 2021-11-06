@@ -55,10 +55,9 @@ const Formulario = ({ tmps, getTemperaments }) => {
     e.preventDefault();
     const newDog = {
       name: input.name,
-      height: parseInt(input.min_height) + parseInt(input.max_height) / 2,
-      weight: parseInt(input.min_weight) + parseInt(input.max_weight) / 2,
-      life_span:
-        parseInt(input.min_life_span) + parseInt(input.max_life_span) / 2,
+      height: input.min_height + " - " + input.max_height,
+      weight: input.min_weight + " - " + input.max_weight,
+      life_span: input.min_life_span + " - " + input.max_life_span,
       image: input.image,
       temperament: input.temperament,
     };

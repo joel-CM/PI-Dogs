@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Dog = ({ dog }) => {
   return (
     <div key={dog.id} className={style.card}>
-      <Link to={`/home/${dog.id}/dog`}>
+      <Link className={style.link} to={`/home/${dog.id}/dog`}>
         <h4 className={style.title}>{dog.name}</h4>
       </Link>
       <div className={style.dogImg}>

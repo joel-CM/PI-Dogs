@@ -218,6 +218,10 @@
   text-align: center;
   color: #ff99de;
 }
+.link{
+  text-decoration: none;
+}
+
 .dogImg {
   margin: auto;
   width: 200px;

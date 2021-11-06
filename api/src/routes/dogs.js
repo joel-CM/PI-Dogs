@@ -16,7 +16,7 @@ route.get("/", async (req, res) => {
   const breeds = dogs.data.map((breed) => {
     let imperial_1 = breed.weight.imperial.split("-")[0];
     let imperial_2 = breed.weight.imperial.split("-")[1];
-    let tmp = parseInt(imperial_1) + parseInt(imperial_2) / 2;
+    let tmp = imperial_1 + " - " + imperial_2;
     return {
       id: breed.id,
       name: breed.name,
@@ -57,7 +57,7 @@ route.get("/", async (req, res) => {
     return res.status(200).json(breeds);
   } else {
     let minName = name;
-    const breed = breeds.find((breed) =>
+    const breed = breeds.filter((breed) =>
       breed.name.toLowerCase().includes(minName.toLowerCase())
     );
     if (breed) return res.json(breed);
@@ -65,7 +65,7 @@ route.get("/", async (req, res) => {
   }
 });
 
-route.get("/:idRace", async (req, res) => {
+route.get("/:idBreed", async (req, res) => {
   const { idBreed } = req.params;
 
   const breed = await axios.get(
@@ -78,17 +78,13 @@ route.get("/:idRace", async (req, res) => {
         (breed) => breed.id === parseInt(idBreed)
       );
 
-      let imperial_1 = parseInt(breedById.temperament.split("-")[0]);
-      let imperial_2 = parseInt(breedById.temperament.split("-")[1]);
-      let tmp = imperial_1 + imperial_2 / 2;
-
       let showRace = {
         id: breedById.id,
         name: breedById.name,
         height: breedById.height.imperial,
         weight: breedById.weight.imperial,
         life_span: breedById.life_span,
-        temperament: tmp,
+        temperament: breedById.temperament,
         image: breedById.image.url,
       };
 
@@ -99,7 +95,7 @@ route.get("/:idRace", async (req, res) => {
     }
   } else {
     try {
-      let breedById = await Dog.findByPk(idRace);
+      let breedById = await Dog.findByPk(idBreed);
 
       console.log("taza por UUIDDDDDDDDDDDDD" + typeof idRace + " - " + idRace);
       res.json(breedById);

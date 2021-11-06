@@ -38,4 +38,4 @@ const Formulario = ({ getDogByQuery }) => {
   );
 };
 
-export default connect(null, { getDogById })(Formulario);
+export default connect(null, { getDogByQuery })(Formulario);

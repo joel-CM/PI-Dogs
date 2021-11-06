@@ -57,14 +57,19 @@ export default function reducer(state = initialState, action) {
     };
   }
 
-
   //todo: Ordeno por peso ##################################################
   if (action.type === ORDER_BY_WEIGHT_ASC) {
     const dogsByWeightAsc = [...state.dogs];
     return {
       ...state,
       // dogs: action.payload.sort((a, b) => (b.weight > a.weight ? -1 : 1)),
-      dogs: dogsByWeightAsc.sort((a, b) => (b.weight > a.weight ? -1 : 1)),
+      dogs: dogsByWeightAsc.sort((a, b) =>
+        parseFloat(b.weight.split("-")[0]) +
+          parseFloat(b.weight.split("-")[1]) >
+        parseFloat(a.weight.split("-")[0]) + parseFloat(a.weight.split("-")[1])
+          ? -1
+          : 1
+      ),
     };
   }
   if (action.type === ORDER_BY_WEIGHT_DES) {
