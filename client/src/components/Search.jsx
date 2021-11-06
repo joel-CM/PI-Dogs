@@ -2,24 +2,24 @@ import React, { useState } from "react";
 import style from "./Search.module.css";
 import { connect } from "react-redux";
 // todo. actions
-import { getDogById } from "../actions/actions";
+import { getDogByQuery } from "../actions/actions";
 
 //todo: icons
 import { FaSearch } from "react-icons/fa";
 
-const Formulario = ({ getDogById }) => {
+const Formulario = ({ getDogByQuery }) => {
   const [state, setstate] = useState("");
 
   //todo -> busqueda en "vivo"
   const handleChange = (e) => {
     setstate((prevValue) => (prevValue = e.target.value));
-    getDogById(state);
+    getDogByQuery(state);
   };
 
   //todo -> busqueda normal
   const handleSubmit = (e) => {
     e.preventDefault();
-    getDogById(state);
+    getDogByQuery(state);
   };
 
   return (

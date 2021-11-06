@@ -1,6 +1,6 @@
 import {
   GET_DOGS,
-  GET_DOG_BY_ID,
+  GET_DOG_BY_QUERY,
   GET_DOGS_CREATE,
   PAG_LEFT,
   PAG_RIGHT,
@@ -22,12 +22,43 @@ const initialState = {
 };
 
 export default function reducer(state = initialState, action) {
+  //todo: traigo los perros ##########################################
   if (action.type === GET_DOGS) {
     return {
       ...state,
       dogs: action.payload,
     };
   }
+
+  //todo: traigo los temperamentos ###################################
+  if (action.type === GET_TMPS) {
+    return {
+      ...state,
+      tmps: action.payload,
+    };
+  }
+
+  //todo: traigo los perros creados (de mi base de datos) ##############
+  if (action.type === GET_DOGS_CREATE) {
+    console.log("dogs creadogs");
+    return {
+      ...state,
+      pInicio: (state.pInicio = 0),
+      pFinal: (state.pFinal = 8),
+      dogs: state.dogs?.filter((dog) => dog.createdInDb === true),
+    };
+  }
+
+  //todo: traigo los perros por query ###########################################
+  if (action.type === GET_DOG_BY_QUERY) {
+    return {
+      ...state,
+      dogs: [{ ...action.payload }],
+    };
+  }
+
+
+  //todo: Ordeno por peso ##################################################
   if (action.type === ORDER_BY_WEIGHT_ASC) {
     const dogsByWeightAsc = [...state.dogs];
     return {
@@ -44,6 +75,8 @@ export default function reducer(state = initialState, action) {
       dogs: dogsByWeightDes.sort((a, b) => (b.weight > a.weight ? 1 : -1)),
     };
   }
+
+  //todo: ordeno por temperamento #########################################
   if (action.type === ORDER_BY_TEMPERAMENT_ASC) {
     const dogsByTmpAsc = [...state.dogs];
     return {
@@ -63,6 +96,7 @@ export default function reducer(state = initialState, action) {
     };
   }
 
+  //todo: ordeno por raza ################################################
   if (action.type === ORDER_BY_BREED_ASC) {
     const dogsByBreedAsc = [...state.dogs];
     return {
@@ -79,22 +113,7 @@ export default function reducer(state = initialState, action) {
     };
   }
 
-  if (action.type === GET_DOG_BY_ID) {
-    return {
-      ...state,
-      dogs: [{ ...action.payload }],
-    };
-  }
-
-  if (action.type === GET_DOGS_CREATE) {
-    console.log("dogs creadogs");
-    return {
-      ...state,
-      pInicio: (state.pInicio = 0),
-      pFinal: (state.pFinal = 8),
-      dogs: state.dogs?.filter((dog) => dog.createdInDb === true),
-    };
-  }
+  //todo: paginado hacia la izquierda #######################################
   if (action.type === PAG_LEFT) {
     return {
       ...state,
@@ -102,6 +121,8 @@ export default function reducer(state = initialState, action) {
       pFinal: state.pFinal - 8,
     };
   }
+
+  //todo: paginado hacia la derecha ############################################
   if (action.type === PAG_RIGHT) {
     return {
       ...state,
@@ -110,13 +131,7 @@ export default function reducer(state = initialState, action) {
     };
   }
 
-  if (action.type === GET_TMPS) {
-    return {
-      ...state,
-      tmps: action.payload,
-    };
-  }
-
+  //todo: filtrado por temperamento ################################################
   if (action.type === FILTER_BY_SELECT) {
     if (action.payload.breed !== "none") {
       const filterBySelect = action.payload.dogs;

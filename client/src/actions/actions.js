@@ -1,8 +1,8 @@
 // import axios from "axios";
 
 //todo: Actioms Types -------------------<>>>
-export const GET_DOGS = "temperament,weight";
-export const GET_DOG_BY_ID = "GET_DOG_BY_ID";
+export const GET_DOGS = "GET_DOGS";
+export const GET_DOG_BY_QUERY = "GET_DOG_BY_QUERY";
 export const GET_DOGS_CREATE = "GET_DOGS_CREATE";
 export const PAG_LEFT = "PAG_LEFT";
 export const PAG_RIGHT = "PAG_RIGHT";
@@ -29,14 +29,14 @@ export function getDogs() {
   };
 }
 
-export function getDogById(breed) {
+export function getDogByQuery(breed) {
   return function (dispatch) {
     if (breed) {
       return fetch("http://localhost:3001/api/dogs?name=" + breed)
         .then((res) => res.json())
         .then((breed) => {
           dispatch({
-            type: GET_DOG_BY_ID,
+            type: GET_DOG_BY_QUERY,
             payload: breed,
           });
         });
