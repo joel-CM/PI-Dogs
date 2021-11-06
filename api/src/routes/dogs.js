@@ -57,7 +57,7 @@ route.get("/", async (req, res) => {
     return res.status(200).json(breeds);
   } else {
     let minName = name;
-    const breed = breeds.filter((breed) =>
+    const breed = breeds.find((breed) =>
       breed.name.toLowerCase().includes(minName.toLowerCase())
     );
     if (breed) return res.json(breed);

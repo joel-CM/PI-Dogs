@@ -77,7 +77,13 @@ export default function reducer(state = initialState, action) {
     return {
       ...state,
       // dogs: action.payload.sort((a, b) => (b.weight > a.weight ? -1 : 1)),
-      dogs: dogsByWeightDes.sort((a, b) => (b.weight > a.weight ? 1 : -1)),
+      dogs: dogsByWeightDes.sort((a, b) =>
+        parseFloat(b.weight.split("-")[0]) +
+          parseFloat(b.weight.split("-")[1]) >
+        parseFloat(a.weight.split("-")[0]) + parseFloat(a.weight.split("-")[1])
+          ? 1
+          : -1
+      ),
     };
   }
 

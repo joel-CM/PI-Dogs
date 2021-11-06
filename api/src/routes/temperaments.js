@@ -21,18 +21,18 @@ route.get("/", async (req, res) => {
   }
 
   //todo -> traigo todas las razas
-  const races = await axios.get(`https://api.thedogapi.com/v1/breeds`);
+  const breeds = await axios.get(`https://api.thedogapi.com/v1/breeds`);
 
   //todo -> recorro todas las razas, y retorno en un obj SOLO sus props "temperament"
-  const temperaments = races.data.map((race) => {
+  const temperaments = breeds.data.map((breed) => {
     return {
-      temperament: race.temperament,
+      temperament: breed.temperament,
     };
   });
 
   //todo -> recorro cada temperamento, y filtro todos aquellos !== de undefined
   const filtrado = temperaments.filter(
-    (race) => race.temperament !== undefined
+    (breed) => breed.temperament !== undefined
   );
 
   //todo -> se usa más adelante
