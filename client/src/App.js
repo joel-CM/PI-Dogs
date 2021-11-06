@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 
-import Inicio from "./components/Inicio";
-import Home from "./components/Home";
-import Formulario from "./components/Formulario";
-import DogDetail from "./components/DogDetail";
+import Inicio from "./components/Inicio/Inicio";
+import Home from "./components/Home/Home";
+import Formulario from "./components/Formulario/Formulario";
+import DogDetail from "./components/DogDetails/DogDetail";
 
 class App extends Component {
   render() {

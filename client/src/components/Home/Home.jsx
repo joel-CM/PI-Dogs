@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import style from "./Home.module.css";
-import Dogs from "./Dogs";
-import Operaciones from "./Operaciones";
-import Search from "./Search";
+import Dogs from "../Dogs/Dogs";
+import Operaciones from "../Operaciones/Operaciones";
+import Search from "../Search/Search";
 
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { getDogs } from "../actions/actions"; //actions
+import { getDogs } from "../../actions/actions"; //actions
 import { GiDogHouse } from "react-icons/gi"; // icons
 
 const Home = ({ getDogs }) => {

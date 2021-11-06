@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import style from "./Search.module.css";
 import { connect } from "react-redux";
 // todo. actions
-import { getDogByQuery } from "../actions/actions";
+import { getDogByQuery } from "../../actions/actions";
 
 //todo: icons
 import { FaSearch } from "react-icons/fa";

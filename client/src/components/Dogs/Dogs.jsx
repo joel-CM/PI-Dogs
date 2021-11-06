@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Dog from "./Dog";
+import Dog from "../Dog/Dog";
 import style from "./Dogs.module.css";
 import { connect } from "react-redux";
 
 //todo: actions
-import { pagLeft, pagRight } from "../actions/actions";
+import { pagLeft, pagRight } from "../../actions/actions";
 
 //todo: icons <<--->>
 import {

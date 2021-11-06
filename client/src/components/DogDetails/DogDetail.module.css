@@ -194,6 +194,10 @@
   }
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .detailContainer {
   width: 90%;
   min-height: 100vh;

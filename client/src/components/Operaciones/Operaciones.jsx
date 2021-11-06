@@ -15,7 +15,7 @@ import {
   orderByBreedDes,
   getTmps,
   filterBySelect,
-} from "../actions/actions";
+} from "../../actions/actions";
 
 //todo: icons <<<--------->>>
 import { BsFilterRight } from "react-icons/bs";
