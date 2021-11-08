@@ -3,7 +3,7 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 
-//todo: ------> rutas
+//todo: ------> importo las rutas
 const dogRoutes = require("./routes/dogs");
 const temRoutes = require("./routes/temperaments");
 const imgs = require("./routes/imgs");

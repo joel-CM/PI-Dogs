@@ -20,6 +20,7 @@ const Home = ({ getDogs }) => {
         <div className="title-container">
           <h1 className={style.title}>Henry Dogs - Home</h1>
         </div>
+        {/* link liver a inicio */}
         <Link to="/" className={style.linkInicio}>
           <GiDogHouse className={style.inicio} />
         </Link>
