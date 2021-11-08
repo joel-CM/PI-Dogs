@@ -80,10 +80,9 @@ const Formulario = ({ tmps, getTemperaments }) => {
     <div className={style.container}>
       <div className={style.back}>
         <button className={style.btnBack}>
-          {/* <NavLink to="/home" className={style.linkBack}>
+          <NavLink to="/home" className={style.linkBack}>
             BACK
-          </NavLink> */}
-          back
+          </NavLink>{" "}
         </button>
       </div>
       <form className={style.formContainer} onSubmit={handleSubmit}>
@@ -93,7 +92,7 @@ const Formulario = ({ tmps, getTemperaments }) => {
             id="name"
             type="text"
             name="name"
-            placeholder="Race"
+            placeholder="Breed"
             onChange={handleInput}
             value={input.name}
             required={true}

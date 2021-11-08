@@ -264,7 +264,7 @@
   line-height: 30px;
   transition: 0.4s ease-in-out all;
   position: absolute;
-  left: 24%;
+  left: 25%;
   color: #000;
   font-weight: bold;
   text-decoration: none;
@@ -289,7 +289,7 @@
 .btn_link:hover .link {
   width: 100%;
   text-align: start;
-  left: 2%;
+  left: 15px;
 }
 
 .icon {
