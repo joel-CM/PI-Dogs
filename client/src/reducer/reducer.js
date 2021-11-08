@@ -54,6 +54,8 @@ export default function reducer(state = initialState, action) {
     return {
       ...state,
       dogs: [{ ...action.payload }],
+      pInicio: (state.pInicio = 0),
+      pFinal: (state.pFinal = 8),
     };
   }
 
