@@ -1,16 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Dog from "../Dog/Dog";
+import Btn from "../BtnPaginado/BtnPaginado";
 import style from "./Dogs.module.css";
 import { connect } from "react-redux";
 
 //todo: actions
 import { pagLeft, pagRight } from "../../actions/actions";
-
-//todo: icons <<--->>
-import {
-  IoIosArrowDroprightCircle,
-  IoIosArrowDropleftCircle,
-} from "react-icons/io";
 
 //todo: componente <<<<--->>>
 const Dogs = ({ dogs, pInicio, pFinal, pagLeft, pagRight }) => {
@@ -23,26 +18,14 @@ const Dogs = ({ dogs, pInicio, pFinal, pagLeft, pagRight }) => {
 
   return (
     <div className={style.dogs}>
-      {/* //todo: paginado <-----------> */}
-      <div className={style.paginations}>
-        {/* //todo: pag left */}
-        <button
-          className={style.btn}
-          disabled={pInicio < 1 && true}
-          onClick={() => pagLeft()}
-        >
-          <IoIosArrowDropleftCircle className={style.iconLeft} />
-        </button>
-
-        {/* //todo: pag right */}
-        <button
-          className={style.btn}
-          disabled={pFinal > dogs?.length - 1 && true}
-          onClick={() => pagRight()}
-        >
-          <IoIosArrowDroprightCircle className={style.iconRight} />
-        </button>
-      </div>
+      {/* //todo: paginado superior <-----------> */}
+      <Btn
+        dogs={dogs}
+        pInicio={pInicio}
+        pFinal={pFinal}
+        pagRight={pagRight}
+        pagLeft={pagLeft}
+      />
 
       <div className={style.dogContainer}>
         {myDogs?.length >= 1 ? (
@@ -52,25 +35,14 @@ const Dogs = ({ dogs, pInicio, pFinal, pagLeft, pagRight }) => {
         )}
       </div>
 
-      <div className={style.paginations}>
-        {/* //todo: pag left */}
-        <button
-          className={style.btn}
-          disabled={pInicio < 1 && true}
-          onClick={() => pagLeft()}
-        >
-          <IoIosArrowDropleftCircle className={style.iconLeft} />
-        </button>
-
-        {/* //todo: pag right */}
-        <button
-          className={style.btn}
-          disabled={pFinal > dogs?.length - 1 && true}
-          onClick={() => pagRight()}
-        >
-          <IoIosArrowDroprightCircle className={style.iconRight} />
-        </button>
-      </div>
+      {/* //todo: paginado inferior <-----------> */}
+      <Btn
+        dogs={dogs}
+        pInicio={pInicio}
+        pFinal={pFinal}
+        pagRight={pagRight}
+        pagLeft={pagLeft}
+      />
     </div>
   );
 };

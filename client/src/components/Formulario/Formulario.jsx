@@ -80,9 +80,10 @@ const Formulario = ({ tmps, getTemperaments }) => {
     <div className={style.container}>
       <div className={style.back}>
         <button className={style.btnBack}>
-          <NavLink to="/home" className={style.linkBack}>
+          {/* <NavLink to="/home" className={style.linkBack}>
             BACK
-          </NavLink>
+          </NavLink> */}
+          back
         </button>
       </div>
       <form className={style.formContainer} onSubmit={handleSubmit}>
