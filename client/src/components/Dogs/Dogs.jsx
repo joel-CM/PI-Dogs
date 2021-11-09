@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Dog from "../Dog/Dog";
 import Btn from "../BtnPaginado/BtnPaginado";
 import style from "./Dogs.module.css";
+import load from "../../gifs/loading.gif";
+import notFound from "../../gifs/dogNotFound-2.gif"
 import { connect } from "react-redux";
 
 //todo: actions
@@ -15,7 +17,6 @@ const Dogs = ({ dogs, pInicio, pFinal, pagLeft, pagRight }) => {
   useEffect(() => {
     setMyDogs(dogs?.slice(pInicio, pFinal));
   }, [dogs, pInicio, pFinal]);
-
   return (
     <div className={style.dogs}>
       {/* //todo: paginado superior <-----------> */}
@@ -28,10 +29,18 @@ const Dogs = ({ dogs, pInicio, pFinal, pagLeft, pagRight }) => {
       />
 
       <div className={style.dogContainer}>
-        {myDogs?.length >= 1 ? (
+        {myDogs[0]?.message && (
+          <div className={style.notFoundContainer}>
+            <h2> {myDogs[0].message} </h2>
+            <img className={style.notFound} src={notFound} alt="NotFound" />
+          </div>
+        )}
+        {myDogs?.length >= 1 && !myDogs[0].message ? (
           myDogs.map((dog) => <Dog key={dog.id} dog={dog} />)
-        ) : (
-          <h3>Cargando...</h3>
+        ) : myDogs?.length === 0 && (
+          <div className={style.loadContainer}>
+            <img className={style.loading} src={load} alt="cargando..." />
+          </div>
         )}
       </div>
 

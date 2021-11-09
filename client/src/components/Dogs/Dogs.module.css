@@ -128,3 +128,26 @@
   justify-content: center;
   position: relative;
 }
+
+.loadContainer{
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading{
+  width: 100%;
+}
+
+.notFoundContainer{
+  height: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #38002f;
+}
+.notFound {
+  width: 100%;
+}
