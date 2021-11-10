@@ -19,10 +19,13 @@ const Inicio = () => {
       </div>
 
       {/* tecnologias */}
-      <div className={style.tecnologias}>
-        <FaReact className={style.tec_icon_1} />
-        <SiRedux className={style.tec_icon_2} />
-        <IoLogoJavascript className={style.tec_icon_3} />
+      <div className={style.techContainer}>
+        <h3 className={style.techTitle}>TECH</h3>
+        <div className={style.tech}>
+          <FaReact className={style.tec_icon_1} />
+          <SiRedux className={style.tec_icon_2} />
+          <IoLogoJavascript className={style.tec_icon_3} />
+        </div>
       </div>
 
       <button className={style.btn_link}>
