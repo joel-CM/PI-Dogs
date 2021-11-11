@@ -10,7 +10,7 @@ import { connect } from "react-redux";
 import { pagLeft, pagRight } from "../../actions/actions";
 
 //todo: componente <<<<--->>>
-const Dogs = ({ dogs, pInicio, pFinal, pagLeft, pagRight }) => {
+const Dogs = ({ dogs, pInicio, pFinal, pagLeft, pagRight, dogs_loaded }) => {
   //todo: nuevo state de dogs
   const [myDogs, setMyDogs] = useState([]);
 
@@ -31,7 +31,7 @@ const Dogs = ({ dogs, pInicio, pFinal, pagLeft, pagRight }) => {
       <div className={style.dogContainer}>
         {myDogs[0]?.message && (
           <div className={style.notFoundContainer}>
-            <h2> {myDogs[0].message} </h2>
+            <h2> {myDogs[0]?.message} </h2>
             <img className={style.notFound} src={notFound} alt="NotFound" />
           </div>
         )}
@@ -58,6 +58,7 @@ const Dogs = ({ dogs, pInicio, pFinal, pagLeft, pagRight }) => {
 
 const mapStatetoProps = (state) => ({
   dogs: state.dogs,
+  dogs_filtered: state.dogs_filtered,
   pInicio: state.pInicio,
   pFinal: state.pFinal,
 });

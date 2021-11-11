@@ -59,7 +59,7 @@ const Formulario = ({ tmps, getTemperaments }) => {
       weight: input.min_weight + " - " + input.max_weight,
       life_span: input.min_life_span + " - " + input.max_life_span,
       image: input.image,
-      temperament: input.temperament,
+      temperament: Array.from(new Set([...input.temperament])),
     };
     await axios.post("http://localhost:3001/api/dogs", newDog);
     setInput({
@@ -75,6 +75,8 @@ const Formulario = ({ tmps, getTemperaments }) => {
     });
     alert("perro creado (creo...)");
   };
+
+  let tmpSelected = Array.from(new Set([...input.temperament]))
 
   return (
     <div className={style.container}>
@@ -108,6 +110,7 @@ const Formulario = ({ tmps, getTemperaments }) => {
               placeholder="Min Height"
               onChange={handleInput}
               value={input.min_height}
+              min={0}
               required={true}
             />
           </div>
@@ -120,6 +123,7 @@ const Formulario = ({ tmps, getTemperaments }) => {
               placeholder="Max Height"
               onChange={handleInput}
               value={input.max_height}
+              min={0}
               required={true}
             />
           </div>
@@ -135,6 +139,7 @@ const Formulario = ({ tmps, getTemperaments }) => {
               placeholder="Min Weight"
               onChange={handleInput}
               value={input.min_weight}
+              min={0}
               required={true}
             />
           </div>
@@ -147,6 +152,7 @@ const Formulario = ({ tmps, getTemperaments }) => {
               placeholder="Max Weight"
               onChange={handleInput}
               value={input.max_weight}
+              min={0}
               required={true}
             />
           </div>
@@ -161,6 +167,7 @@ const Formulario = ({ tmps, getTemperaments }) => {
               name="min_life_span"
               placeholder="Min Life Span"
               onChange={handleInput}
+              min={0}
               value={input.min_life_span}
             />
           </div>
@@ -172,6 +179,7 @@ const Formulario = ({ tmps, getTemperaments }) => {
               name="max_life_span"
               placeholder="Max Life Span"
               onChange={handleInput}
+              min={0}
               value={input.max_life_span}
             />
           </div>
@@ -205,6 +213,18 @@ const Formulario = ({ tmps, getTemperaments }) => {
             ))}
           </select>
         </div>
+
+        {/* temps seleccionados */}
+        <div>
+          <select className={style.dogSelectTmps}>
+            {
+              tmpSelected?.map(tmp => (
+                <option value={tmp}>{tmp}</option>
+              ))
+            }
+          </select>
+        </div>
+
         <div className={style.submit}>
           <input type="submit" />
         </div>

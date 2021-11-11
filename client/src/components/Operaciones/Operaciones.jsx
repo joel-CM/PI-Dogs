@@ -15,6 +15,8 @@ import {
   orderByBreedDes,
   getTmps,
   filterBySelect,
+  getDogsOnlyDb,
+  newFilter
 } from "../../actions/actions";
 
 //todo: icons <<<--------->>>
@@ -33,6 +35,8 @@ const Operaciones = ({
   getTmps,
   tmps,
   filterBySelect,
+  getDogsOnlyDb,
+  newFilter
 }) => {
   const handleOperations = (e) => {
     if (e.target.value === "all_dogs") {
@@ -53,6 +57,10 @@ const Operaciones = ({
       return orderByBreedAsc();
     } else if (e.target.value === "order_by_breed_des") {
       return orderByBreedDes();
+    } else if (e.target.value === "dogs_api") {
+      return getDogsOnlyDb()
+    } else if (e.target.value === "new_filter") {
+      return newFilter()
     }
   };
 
@@ -71,6 +79,8 @@ const Operaciones = ({
         <select className={style.dogSelect} onChange={handleOperations}>
           <option value="all_dogs">All Dogs</option>
           <option value="dogs_created">Dogs Created</option>
+          <option value="dogs_api">Dogs API</option>
+          <option value="new_filter">New Filter</option>
         </select>
       </div>
 
@@ -124,4 +134,6 @@ export default connect(mapStateToProps, {
   orderByBreedDes,
   getTmps,
   filterBySelect,
+  getDogsOnlyDb,
+  newFilter
 })(Operaciones);

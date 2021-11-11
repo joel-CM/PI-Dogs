@@ -16,12 +16,12 @@ route.get("/", async (req, res) => {
   const breeds = dogs.data.map((breed) => {
     let imperial_1 = breed.weight.imperial.split("-")[0];
     let imperial_2 = breed.weight.imperial.split("-")[1];
-    let tmp = imperial_1 + " - " + imperial_2;
+    let weight = imperial_1 + " - " + imperial_2;
     return {
       id: breed.id,
       name: breed.name,
       height: breed.height.imperial,
-      weight: tmp,
+      weight: weight,
       life_span: breed.life_span,
       temperament: breed.temperament,
       image: breed.image.url,
@@ -50,7 +50,7 @@ route.get("/", async (req, res) => {
   });
 
   //todo: junto todos los perros de la API con los de la DB
-  //todo: razas ahora es un array con todos los dogs necesarios
+  //todo: breeds ahora es un array con todos los dogs necesarios
   breeds.push(...myDogsModel);
 
   if (!name) {
