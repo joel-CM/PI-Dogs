@@ -13,7 +13,7 @@ import {
   FILTER_BY_SELECT,
   GET_TMPS,
   GET_ONLY_DOGS_BD,
-  NEW_FILTER
+  NEW_FILTER,
 } from "../actions/actions";
 
 const initialState = {
@@ -30,7 +30,7 @@ export default function reducer(state = initialState, action) {
     return {
       ...state,
       dogs_loaded: action.payload,
-      dogs: [...state.dogs_loaded]
+      dogs: [...state.dogs_loaded],
     };
   }
 
@@ -175,12 +175,12 @@ export default function reducer(state = initialState, action) {
   }
 
   if (action.type === GET_ONLY_DOGS_BD) {
-    console.log("nuevo filtro")
+    console.log("nuevo filtro");
 
     return {
       ...state,
-      dogs: state.dogs_loaded.filter(dog => {
-        if(typeof dog.id === "number") return dog
+      dogs: state.dogs_loaded.filter((dog) => {
+        if (typeof dog.id === "number") return dog;
       }),
       pInicio: (state.pInicio = 0),
       pFinal: (state.pFinal = 8),
@@ -188,14 +188,14 @@ export default function reducer(state = initialState, action) {
   }
 
   if (action.type === NEW_FILTER) {
-    console.log("nuevo filtro_2")
+    console.log("nuevo filtro_2");
     return {
       ...state,
-      dogs: state.dogs_loaded.filter(dog => {
-        let weight_1 = parseFloat(dog.weight.split("-")[0])
-        let weight_2 = parseFloat(dog.weight.split("-")[1])
+      dogs: state.dogs_loaded.filter((dog) => {
+        let weight_1 = parseFloat(dog.weight.split("-")[0]);
+        let weight_2 = parseFloat(dog.weight.split("-")[1]);
         let promedio = (weight_1 + weight_2) / 2;
-        if(promedio > 50) return dog
+        if (promedio > 50) return dog;
       }),
       pInicio: (state.pInicio = 0),
       pFinal: (state.pFinal = 8),
