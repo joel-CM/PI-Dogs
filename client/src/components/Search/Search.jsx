@@ -8,18 +8,18 @@ import { getDogByQuery } from "../../actions/actions";
 import { FaSearch } from "react-icons/fa";
 
 const Formulario = ({ getDogByQuery }) => {
-  const [state, setstate] = useState("");
+  // const [state, setstate] = useState("");
 
   //todo -> busqueda en "vivo"
   const handleChange = (e) => {
-    setstate((prevValue) => (prevValue = e.target.value));
-    getDogByQuery(state);
+    // setstate((prevValue) => (prevValue = e.target.value));
+    getDogByQuery(e.target.value);
   };
 
   //todo -> busqueda normal
   const handleSubmit = (e) => {
     e.preventDefault();
-    getDogByQuery(state);
+    getDogByQuery(e.target.value);
   };
 
   return (

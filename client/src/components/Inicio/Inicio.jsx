@@ -2,7 +2,7 @@ import React from "react";
 import style from "./Inicio.module.css";
 import { Link } from "react-router-dom";
 
-import { BsArrowBarRight } from "react-icons/bs";
+import { BsFillArrowRightSquareFill } from "react-icons/bs";
 import { FaReact } from "react-icons/fa";
 import { SiRedux } from "react-icons/si";
 import { IoLogoJavascript } from "react-icons/io";
@@ -30,7 +30,7 @@ const Inicio = () => {
 
       <button className={style.btn_link}>
         <span>
-          <BsArrowBarRight className={style.icon} />
+          <BsFillArrowRightSquareFill className={style.icon} />
         </span>
         <Link to="/home" className={style.link}>
           GET START

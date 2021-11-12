@@ -49,7 +49,7 @@ export default function reducer(state = initialState, action) {
       ...state,
       pInicio: (state.pInicio = 0),
       pFinal: (state.pFinal = 8),
-      dogs: action.payload?.filter((dog) => dog.createdInDb === true),
+      dogs: state.dogs_loaded?.filter((dog) => dog.createdInDb === true),
     };
   }
 
@@ -151,7 +151,7 @@ export default function reducer(state = initialState, action) {
   //todo: filtrado por temperamento ################################################
   if (action.type === FILTER_BY_SELECT) {
     if (action.payload.breed !== "none") {
-      const filterBySelect = state.dogs_loaded;
+      const filterBySelect = [...state.dogs_loaded];
       const filtered = filterBySelect?.filter((dog) => {
         if (dog.temperament !== undefined && dog.temperament !== "") {
           if (dog.temperament.includes(action.payload.breed)) return dog;
@@ -173,7 +173,7 @@ export default function reducer(state = initialState, action) {
       };
     }
   }
-  
+
   if (action.type === GET_ONLY_DOGS_BD) {
     console.log("nuevo filtro")
 
@@ -181,7 +181,9 @@ export default function reducer(state = initialState, action) {
       ...state,
       dogs: state.dogs_loaded.filter(dog => {
         if(typeof dog.id === "number") return dog
-      })
+      }),
+      pInicio: (state.pInicio = 0),
+      pFinal: (state.pFinal = 8),
     };
   }
 

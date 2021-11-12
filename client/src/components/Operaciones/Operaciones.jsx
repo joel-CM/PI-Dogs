@@ -59,7 +59,7 @@ const Operaciones = ({
       return orderByBreedDes();
     } else if (e.target.value === "dogs_api") {
       return getDogsOnlyDb()
-    } else if (e.target.value === "new_filter") {
+    } else if (e.target.value === "weight>50") {
       return newFilter()
     }
   };
@@ -80,7 +80,7 @@ const Operaciones = ({
           <option value="all_dogs">All Dogs</option>
           <option value="dogs_created">Dogs Created</option>
           <option value="dogs_api">Dogs API</option>
-          <option value="new_filter">New Filter</option>
+          <option value="weight>50">Weight > 50</option>
         </select>
       </div>
 
