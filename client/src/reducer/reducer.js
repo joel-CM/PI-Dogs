@@ -176,7 +176,6 @@ export default function reducer(state = initialState, action) {
 
   if (action.type === GET_ONLY_DOGS_BD) {
     console.log("nuevo filtro");
-
     return {
       ...state,
       dogs: state.dogs_loaded.filter((dog) => {

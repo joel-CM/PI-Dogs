@@ -1,10 +1,10 @@
 import React from "react";
-import style from "./BtnPaginado.module.css"
+import style from "./BtnPaginado.module.css";
 
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import { IoIosArrowDropleftCircle } from "react-icons/io";
 
-const BtnPaginado = ({dogs, pInicio, pFinal, pagRight, pagLeft }) => {
+const BtnPaginado = ({ dogs, pInicio, pFinal, pagRight, pagLeft }) => {
   return (
     <div className={style.paginations}>
       {/* //todo: pag left */}

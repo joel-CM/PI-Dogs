@@ -14,7 +14,6 @@ const Dog = ({ dog }) => {
       </div>
       <div className={style.temp}>
         <p>
-          {" "}
           <span> Temperament: </span>
           {dog.temperament}
         </p>
