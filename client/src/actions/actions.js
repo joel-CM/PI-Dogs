@@ -14,13 +14,13 @@ export const ORDER_BY_BREED_ASC = "ORDER_BY_BREED_ASC";
 export const ORDER_BY_BREED_DES = "ORDER_BY_BREED_DES";
 export const FILTER_BY_SELECT = "FILTER_BY_SELECT";
 export const GET_TMPS = "GET_TMPS";
-export const GET_ONLY_DOGS_BD = "GET_ONLY_DOGS_BD"
-export const NEW_FILTER = "NEW_FILTER"
+export const GET_ONLY_DOGS_BD = "GET_ONLY_DOGS_BD";
+export const NEW_FILTER = "NEW_FILTER";
 
 //todo ->>> Actiosn <<----------------->>
 export function getDogs() {
   return function (dispatch) {
-    return fetch("http://localhost:3001/api/dogs")
+    return fetch("http://pi-dog-back.herokuapp.com/api/dogs")
       .then((res) => res.json())
       .then((data) => {
         dispatch({
@@ -34,7 +34,7 @@ export function getDogs() {
 export function getDogByQuery(breed) {
   return function (dispatch) {
     if (breed) {
-      return fetch("http://localhost:3001/api/dogs?name=" + breed)
+      return fetch("http://pi-dog-back.herokuapp.com/api/dogs?name=" + breed)
         .then((res) => res.json())
         .then((breed) => {
           dispatch({
@@ -43,7 +43,7 @@ export function getDogByQuery(breed) {
           });
         });
     } else {
-      return fetch("http://localhost:3001/api/dogs")
+      return fetch("http://pi-dog-back.herokuapp.com/api/dogs")
         .then((res) => res.json())
         .then((data) => {
           dispatch({
@@ -58,7 +58,7 @@ export function getDogByQuery(breed) {
 export function getDogsCreated() {
   return {
     type: GET_DOGS_CREATE,
-  }
+  };
 }
 
 export function pagLeft() {
@@ -112,13 +112,13 @@ export function orderByBreedDes() {
 export function filterBySelect(breed) {
   return {
     type: FILTER_BY_SELECT,
-    payload: { breed: breed},
-  }
+    payload: { breed: breed },
+  };
 }
 
 export function getTmps() {
   return async function (dispatch) {
-    await fetch("http://localhost:3001/api/temperaments")
+    await fetch("http://pi-dog-back.herokuapp.com/api/temperaments")
       .then((res) => res.json())
       .then((data) => {
         dispatch({
@@ -132,11 +132,11 @@ export function getTmps() {
 export function getDogsOnlyDb() {
   return {
     type: GET_ONLY_DOGS_BD,
-  }
+  };
 }
 
 export function newFilter() {
   return {
     type: NEW_FILTER,
-  }
+  };
 }

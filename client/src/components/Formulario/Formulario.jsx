@@ -7,7 +7,7 @@ const Formulario = ({ tmps, getTemperaments }) => {
   const [state, setstate] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/temperaments")
+    fetch("http://pi-dog-back.herokuapp.com/api/temperaments")
       .then((res) => res.json())
       .then((data) => {
         setstate(data.results);
@@ -61,7 +61,7 @@ const Formulario = ({ tmps, getTemperaments }) => {
       image: input.image,
       temperament: Array.from(new Set([...input.temperament])),
     };
-    await axios.post("http://localhost:3001/api/dogs", newDog);
+    await axios.post("http://pi-dog-back.herokuapp.com/api/dogs", newDog);
     setInput({
       name: "",
       max_height: 0,
